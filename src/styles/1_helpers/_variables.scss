@@ -1,0 +1,31 @@
+// Variables
+//
+
+// Color system
+$color-white:       #fff;
+$color-grey-lighter:#f7f7f8;
+$color-grey-light:  #ccc;
+$color-grey:        #8f8f8f;
+$color-grey-dark:   #414141;
+$color-red:         #e02d54;
+
+// Typography
+$base-body-font-size: 16px;
+$font-family-base: 'Spartan', sans-serif;
+$headings-font-family: $font-family-base;
+
+// Grid
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+$container-max-widths: (
+  sm: 700px,
+  md: 880px,
+  lg: 1120px,
+  xl: 1300px
+);

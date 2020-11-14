@@ -1,0 +1,95 @@
+// Song
+//
+
+// Table
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  margin-bottom: 15px;
+
+  thead {
+    border-top: 1px solid $color-grey-lighter;
+
+    th {
+      font-size: calculate-rem(12px);
+      text-transform: uppercase;
+      padding: .75rem;
+
+      &:last-child {
+        text-align: right;
+      }
+
+      &.table__mobile {
+        display: none;
+      }
+
+      &.table__title {
+        text-align: right;
+      }
+
+      @include media-breakpoint-up(md) {
+        &.table__title {
+          text-align: left;
+        }
+
+        &.table__mobile {
+          display: table-cell;
+        }
+      }
+    }
+  }
+
+  tbody {
+    td,
+    th {
+      vertical-align: middle;
+      padding: .5rem;
+    }
+  }
+}
+
+// Song component
+.song {
+  cursor: pointer;
+  font-size: calculate-rem(12px);
+  border-top: 1px solid $color-grey-lighter;
+  transition: .1s background-color linear;
+
+  &__image {
+    max-width: 35px;
+    border-radius: 5px;
+    vertical-align: middle;
+  }
+
+  &__title {
+    text-align: right;
+  }
+
+  &__duration {
+    color: $color-grey;
+    text-align: right;
+  }
+
+  &__author,
+  &__album,
+  &__duration {
+    display: none;
+  }
+
+  &:hover {
+    background-color: $color-grey-lighter;
+  }
+
+  @include media-breakpoint-up(md) {
+    &__title {
+      text-align: left;
+    }
+  
+    &__author,
+    &__album,
+    &__duration {
+      display: table-cell;
+    }
+  }
+}

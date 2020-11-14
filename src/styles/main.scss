@@ -1,0 +1,17 @@
+// Main scss file
+//
+
+// Helpers
+@import "1_helpers/variables";
+@import "1_helpers/functions";
+@import "1_helpers/bootstrap-grid";
+
+// Base elements
+@import "2_base/base";
+@import "2_base/header";
+
+// Components
+@import "3_components/tabs";
+@import "3_components/song";
+@import "3_components/album";
+@import "3_components/artist";

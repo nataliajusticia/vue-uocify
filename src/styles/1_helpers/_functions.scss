@@ -1,0 +1,9 @@
+// Functions
+//
+
+// calculate-rem()
+// converts font-size in px to rem
+@function calculate-rem($size) {
+  $remSize: $size / $base-body-font-size;
+  @return #{$remSize}rem;
+}

@@ -1,0 +1,95 @@
+// Tabs
+//
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0.9rem 0;
+  border-bottom: 1px solid $color-grey-lighter;
+
+  .nav-item {
+    margin-right: 1.5rem;
+
+    .nav-link {
+      font-size: calculate-rem(14px);
+      color: $color-grey;
+      border-radius: 0;
+      padding: 1rem 0;
+      text-decoration: none;
+
+      &:hover {
+        color: $color-red;
+      }
+    }
+
+    &.active {
+      .nav-link {
+        font-weight: 600;
+        color: $color-grey-dark;
+        background-color: transparent;
+        border-bottom: 2px solid $color-red;
+      }
+    }
+  }
+}
+
+// Panes
+.tab-pane {
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}
+
+// Links
+.direct-link {
+  color: $color-grey-dark;
+  text-decoration: none;
+  transition: 0.1s linear;
+
+  > i {
+    transform: translateX(0);
+    transition: 0.1s linear;
+  }
+
+  &:hover {
+    color: $color-red;
+
+    > i {
+      transform: translateX(5px);
+    }
+  }
+}
+
+// Resposive styles
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+
+    .nav-item {
+      font-weight: bold;
+      margin: 0;
+      border-bottom: 1px solid $color-grey-light;
+
+      .nav-link {
+        text-align: center;
+        display: block;
+        border: 0;
+        background-color: $color-grey-lighter;
+      }
+
+      &.active {
+        .nav-link {
+          background-color: rgba($color-grey, 0.3);
+          border: 0;
+        }
+      }
+
+      &:last-child {
+        border: 0;
+      }
+    }
+  }
+}
