@@ -1,5 +1,33 @@
-// Header
-//
+<template>
+    <header>
+    <nav class="navbar">
+      <div class="navbar__brand">
+        <a class="navbar__logo" href="#">
+          <img src="@/assets/logo.svg" width="150" alt="uocify logo" loading="lazy" class="d-none d-sm-block">
+          <img src="@/assets/icon.svg" width="40" alt="uocify logo" loading="lazy" class="d-sm-none">
+        </a>
+
+        <div class="navbar__search">
+          <fa-icon icon="search" />
+          <input type="text" placeholder="Buscar..." value="the beatles">
+        </div>
+      </div>
+
+      <div class="navbar__user">
+        <span class="user-name d-none d-sm-block">Natalia</span>
+        <span class="user-icon"><fa-icon icon="user" /></span>
+      </div>
+    </nav>
+  </header>
+</template>
+
+<script>
+export default {
+  name: 'Header'
+}
+</script>
+
+<style lang="scss">
 header {
   position: sticky;
   top: 0;
@@ -22,7 +50,7 @@ header {
 
   &__logo {
     display: inline-block;
-    margin-right: calculate-rem(15px);
+    margin-right: 15px;
 
     img {
       display: inline-block;
@@ -33,11 +61,12 @@ header {
   &__search {
     input {
       appearance: none;
-      font-size: calculate-rem(12px);
+      font-size: 0.75rem;
       color: $color-grey-dark;
       padding: 5px;
       border: 0;
       border-bottom: 2px solid transparent;
+      font-family: $font-family-base;
 
       &:focus {
         outline: none;
@@ -52,9 +81,9 @@ header {
     align-items: center;
 
     .user-name {
-      font-size: calculate-rem(12px);
+      font-size: 0.75rem;
       font-weight: 700;
-      margin-right: calculate-rem(12px);
+      margin-right: 0.75rem;
       line-height: 100%;
     }
 
@@ -76,3 +105,4 @@ header {
     }
   }
 }
+</style>
