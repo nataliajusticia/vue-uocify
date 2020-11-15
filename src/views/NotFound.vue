@@ -1,5 +1,7 @@
 <template>
-  <div>Error 404 - Page Not Found</div>
+  <div>
+    <h1><span class="search-excerp">Error 404</span> Page Not Found</h1>
+    </div>
 </template>
 
 <script>
