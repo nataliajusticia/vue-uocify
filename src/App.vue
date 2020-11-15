@@ -2,20 +2,18 @@
   <div id="app">
     <AppHeader />
     <main class="container">
-      <SearchResults />
+      <router-view></router-view>
     </main>
   </div>
 </template>
 
 <script>
 import AppHeader from '@/components/AppHeader'
-import SearchResults from '@/views/SearchResults'
 
 export default {
   name: 'App',
   components: {
-    AppHeader,
-    SearchResults
+    AppHeader
   }
 }
 </script>
