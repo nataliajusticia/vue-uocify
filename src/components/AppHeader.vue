@@ -2,10 +2,10 @@
     <header>
     <nav class="navbar">
       <div class="navbar__brand">
-        <a class="navbar__logo" href="/">
+        <router-link class="navbar__logo" to="/">
           <img src="@/assets/logo/logo.svg" width="150" alt="uocify logo" loading="lazy" class="d-none d-sm-block">
           <img src="@/assets/logo/icon.svg" width="40" alt="uocify logo" loading="lazy" class="d-sm-none">
-        </a>
+        </router-link>
         <SearchBar />
       </div>
 
