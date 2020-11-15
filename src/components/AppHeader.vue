@@ -3,14 +3,10 @@
     <nav class="navbar">
       <div class="navbar__brand">
         <a class="navbar__logo" href="#">
-          <img src="@/assets/logo.svg" width="150" alt="uocify logo" loading="lazy" class="d-none d-sm-block">
-          <img src="@/assets/icon.svg" width="40" alt="uocify logo" loading="lazy" class="d-sm-none">
+          <img src="@/assets/logo/logo.svg" width="150" alt="uocify logo" loading="lazy" class="d-none d-sm-block">
+          <img src="@/assets/logo/icon.svg" width="40" alt="uocify logo" loading="lazy" class="d-sm-none">
         </a>
-
-        <div class="navbar__search">
-          <fa-icon icon="search" />
-          <input type="text" placeholder="Buscar..." value="the beatles">
-        </div>
+        <SearchBar />
       </div>
 
       <div class="navbar__user">
@@ -22,12 +18,17 @@
 </template>
 
 <script>
+import SearchBar from '@/components/SearchBar.vue'
+
 export default {
-  name: 'Header'
+  name: 'Header',
+  components: {
+    SearchBar
+  }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 header {
   position: sticky;
   top: 0;
@@ -56,23 +57,6 @@ header {
       display: inline-block;
       vertical-align: top;
       }
-  }
-
-  &__search {
-    input {
-      appearance: none;
-      font-size: 0.75rem;
-      color: $color-grey-dark;
-      padding: 5px;
-      border: 0;
-      border-bottom: 2px solid transparent;
-      font-family: $font-family-base;
-
-      &:focus {
-        outline: none;
-        border-bottom: 2px solid $color-red;
-      }
-    }
   }
 
   // User section

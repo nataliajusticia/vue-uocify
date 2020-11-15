@@ -1,27 +1,21 @@
 <template>
   <div id="app">
-    <Header />
-    <main>
-      <b-container>
-        Test
-      </b-container>
+    <AppHeader />
+    <main class="container">
+      <SearchResults />
     </main>
   </div>
 </template>
 
 <script>
-import Header from './components/Header.vue'
+import AppHeader from '@/components/AppHeader'
+import SearchResults from '@/views/SearchResults'
 
 export default {
   name: 'App',
   components: {
-    Header
+    AppHeader,
+    SearchResults
   }
 }
 </script>
-
-<style>
-#app {
-
-}
-</style>

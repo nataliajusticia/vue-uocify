@@ -10,12 +10,13 @@
     border-radius: 100%;
     border: 1px solid $color-grey-light;
     margin-bottom: 10px;
+    transition: all .2s ease-in-out;
   }
 
   &__title {
     text-align: center;
     margin: 0;
-    font-size: calculate-rem(12px);
+    font-size: 0.75rem;
     font-weight: 600;
     white-space: nowrap;
     overflow: hidden;
@@ -25,7 +26,7 @@
   &__description {
     text-align: center;
     margin: 0;
-    font-size: calculate-rem(12px);
+    font-size: 0.75rem;
     color: $color-grey;
   }
 
@@ -33,7 +34,7 @@
     .artist__image {
       box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.12),
         0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.2);
-      border: 0;
+      transform: scale(1.1);
     }
   }
 }
