@@ -1,29 +1,28 @@
 <template>
   <div class="tab-pane" id="artistas">
-    <h2>72 artistas</h2>
+    <h2>{{ numberOfArtists() }} artistas</h2>
 
     <div class="row">
-      <div class="col-lg-2 col-md-4 artist">
-        <img class="artist__image" v-bind:src="picture_xl" v-bind:alt="name" loading="lazy">
-        <p class="artist__title">{{ name }}</p>
-        <p class="artist__description">{{ nb_fan }} fans</p>
-      </div>
+      <Artist v-for="artist in artists" v-bind:key="artist.id" v-bind:name="artist.name" v-bind:picture_xl="artist.picture_xl" v-bind:nb_fan="artist.nb_fan" />
     </div>
   </div>
 </template>
 
 <script>
+import Artist from '@/components/Artist'
+
 export default {
   name: 'ArtistList',
+  components: {
+    Artist
+  },
   props: {
-    artists: Array,
-    name: String,
-    picture_xl: String,
-    nb_fan: Number
+    artists: Array
+  },
+  methods: {
+    numberOfArtists () {
+      return this.artists.length
+    }
   }
 }
 </script>
-
-<style lang="scss">
-
-</style>
