@@ -4,9 +4,9 @@
 
     <div class="row">
       <div class="col-lg-2 col-md-4 artist">
-        <img class="artist__image" src="@/assets/artists/the-beatles.jpg" alt="The Beatles" loading="lazy">
-        <p class="artist__title">The Beatles</p>
-        <p class="artist__description">5.699.029 fans</p>
+        <img class="artist__image" v-bind:src="picture_xl" v-bind:alt="name" loading="lazy">
+        <p class="artist__title">{{ name }}</p>
+        <p class="artist__description">{{ nb_fan }} fans</p>
       </div>
     </div>
   </div>
@@ -14,7 +14,13 @@
 
 <script>
 export default {
-  name: 'ArtistList'
+  name: 'ArtistList',
+  props: {
+    artists: Array,
+    name: String,
+    picture_xl: String,
+    nb_fan: Number
+  }
 }
 </script>
 
