@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 
+// Import bootstrap and fontawesome
 import { BootstrapVue } from 'bootstrap-vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faBars, faSearch, faChevronRight, faUser, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
@@ -10,11 +11,11 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 // Import custom styles
 import './styles/main.scss'
 
-// Use fontwesome icons
+// Use bootstrap and fontawesome icons
+Vue.use(BootstrapVue)
 library.add(faBars, faSearch, faChevronRight, faUser, faSignOutAlt)
 Vue.component('fa-icon', FontAwesomeIcon)
 
-Vue.use(BootstrapVue)
 Vue.config.productionTip = false
 
 new Vue({

@@ -4,6 +4,10 @@
 ```
 npm install
 ```
+or clean install of all the dependencies
+```
+npm ci
+```
 
 ### Compiles and hot-reloads for development
 ```
