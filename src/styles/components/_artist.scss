@@ -38,3 +38,12 @@
     }
   }
 }
+
+// Resposive styles
+@media (max-width: 768px) {
+  .artist:hover {
+    .artist__image {
+      transform: scale(1);
+    }
+  }
+}

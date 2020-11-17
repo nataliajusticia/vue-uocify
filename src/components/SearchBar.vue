@@ -2,7 +2,7 @@
   <div class="navbar__search">
     <form>
       <fa-icon icon="search" />
-      <input type="text" placeholder="Buscar..." value="the beatles">
+      <input type="text" placeholder="Buscar..." value="">
     </form>
   </div>
 </template>
@@ -14,21 +14,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.navbar {
-  &__search {
-    input {
-      appearance: none;
-      font-size: 0.75rem;
-      color: $color-grey-dark;
-      padding: 5px;
-      border: 0;
-      border-bottom: 2px solid transparent;
-      font-family: $font-family-base;
+.navbar__search {
+  input {
+    appearance: none;
+    font-size: 0.75rem;
+    color: $color-grey-dark;
+    padding: 5px;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    font-family: $font-family-base;
 
-      &:focus {
-        outline: none;
-        border-bottom: 2px solid $color-red;
-      }
+    &:focus {
+      outline: none;
+      border-bottom: 2px solid $color-red;
     }
   }
 }

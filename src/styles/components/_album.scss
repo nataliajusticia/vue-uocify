@@ -36,3 +36,12 @@
     }
   }
 }
+
+// Resposive styles
+@media (max-width: 768px) {
+  .album:hover {
+    .album__image {
+      transform: scale(1);
+    }
+  }
+}
