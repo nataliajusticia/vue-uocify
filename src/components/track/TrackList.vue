@@ -1,6 +1,6 @@
 <template>
   <div class="tab-pane" id="canciones">
-    <h2>{{ numberOfTracks() }} canciones</h2>
+    <h2>{{ tracksTotal }} canciones</h2>
 
     <table class="table">
       <thead>
@@ -31,9 +31,9 @@ export default {
   props: {
     tracks: Array
   },
-  methods: {
-    numberOfTracks () {
-      return this.tracks.length
+  data () {
+    return {
+      tracksTotal: this.tracks.length
     }
   }
 }
