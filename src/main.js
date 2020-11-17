@@ -1,7 +1,6 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
 import App from './App.vue'
-import { routes } from './router/routes'
+import router from './router'
 
 import { BootstrapVue } from 'bootstrap-vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -15,14 +14,8 @@ import './styles/main.scss'
 library.add(faBars, faSearch, faChevronRight, faUser, faSignOutAlt)
 Vue.component('fa-icon', FontAwesomeIcon)
 
-Vue.use(VueRouter)
 Vue.use(BootstrapVue)
 Vue.config.productionTip = false
-
-const router = new VueRouter({
-  routes,
-  mode: 'history'
-})
 
 new Vue({
   router,

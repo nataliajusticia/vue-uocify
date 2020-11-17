@@ -1,8 +1,13 @@
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+
 import Home from '@/views/Home'
 import SearchResults from '@/views/SearchResults'
 import NotFound from '@/views/NotFound'
 
-export const routes = [
+Vue.use(VueRouter)
+
+const routes = [
   {
     path: '',
     name: 'Home',
@@ -19,3 +24,10 @@ export const routes = [
     component: NotFound
   }
 ]
+
+const router = new VueRouter({
+  routes,
+  mode: 'history'
+})
+
+export default router
