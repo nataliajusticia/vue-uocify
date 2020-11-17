@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import Artist from '@/components/Artist'
+import Artist from '@/components/artist/Artist'
 
 export default {
   name: 'ArtistList',

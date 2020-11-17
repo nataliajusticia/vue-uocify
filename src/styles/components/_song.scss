@@ -12,7 +12,7 @@ table {
     border-top: 1px solid $color-grey-lighter;
 
     th {
-      font-size: calculate-rem(12px);
+      font-size: .75rem;
       text-transform: uppercase;
       padding: .75rem;
 
@@ -52,7 +52,7 @@ table {
 // Song component
 .song {
   cursor: pointer;
-  font-size: calculate-rem(12px);
+  font-size: .75rem;
   border-top: 1px solid $color-grey-lighter;
   transition: .1s background-color linear;
 

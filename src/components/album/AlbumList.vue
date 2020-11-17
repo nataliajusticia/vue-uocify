@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import Album from '@/components/Album'
+import Album from '@/components/album/Album'
 
 export default {
   name: 'AlbumList',
