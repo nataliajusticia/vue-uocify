@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
+import './firebase'
 
 // Import bootstrap and fontawesome
 import { BootstrapVue } from 'bootstrap-vue'
