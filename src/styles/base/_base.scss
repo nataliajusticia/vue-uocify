@@ -45,23 +45,7 @@ h3 {
   font-size: 1rem;
 }
 
-.btn {
-  display: inline-block;
-  min-width: 120px;
-  background-color: $color-grey-dark;
-  padding: 20px;
-  color: $color-white;
-  text-decoration: none;
-  font-weight: 600;
-  line-height: 100%;
-  font-size: 0.875rem;
-  border-radius: 5px;
-  margin-block-start: 0.83em;
-  margin-block-end: 0.83em;
-  text-align: center;
-}
-
-// Layout
+// Main layout
 .container {
   padding-bottom: 15px;
   padding-top: 25px;
@@ -70,18 +54,35 @@ h3 {
 .main-section {
   padding: 15px;
   background-color: $color-white;
+  border-radius: .25rem;
 }
 
+
+// Home section
 #home {
   table {
     margin-bottom: 30px;
   }
 }
 
-.search-excerp {
-  color: $color-grey;
+// Login, register view
+.box-auth {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 40px;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+
+  &__bottom {
+    font-size: .75rem;
+  }
 }
 
-.header-title {
-  font-size: 2rem;
+// Resposive styles
+@media (max-width: 768px) {
+  .box-auth {
+    padding: 15px;
+  }
 }

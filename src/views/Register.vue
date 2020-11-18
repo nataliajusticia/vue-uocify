@@ -1,27 +1,26 @@
 <template>
-  <main class="page-register">
+  <section class="main-section box-auth">
+    <img width="100" alt="uocify logo" loading="lazy" src="@/assets/icon.svg">
+    <h1 class="main-title">Registro</h1>
 
-    <section class="box-auth">
-      <img class="logo" alt="logo" src="@/assets/icon.svg">
-      <h1 class="main-title">Registro</h1>
-      <p class="auth-intro">Regístrate en uocify para disfrutar de miles de canciones.</p>
+    <p class="box-auth__intro">Regístrate en uocify para disfrutar de miles de canciones.</p>
 
-      <form>
-          <div class="form-group">
-            <label class="form-label" for="username">Email</label>
-            <input placeholder="Correo electrónico" type="email" id="email" class="form-control">
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="password">Contraseña</label>
-            <input placeholder="Contraseña" type="password" id="password" class="form-control">
-          </div>
-          <button class="btn">Registrar</button>
-      </form>
+    <form @submit.prevent="register" class="box-auth__form">
+      <div class="form-group">
+        <label class="form-label" for="username">Email</label>
+        <input placeholder="Correo electrónico" type="email" id="email" class="form-control" v-model="form.email">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="password">Contraseña</label>
+        <input placeholder="Contraseña" type="password" id="password" class="form-control" v-model="form.password">
+      </div>
+      <button type="submit" class="btn">Registrar</button>
+    </form>
 
-      <p class="auth-bottom">¿Ya tienes cuenta?   <router-link class="alink" to="/login">Inicia sesión</router-link></p>
-    </section>
+    <div v-if="error" class="alert">{{ error }}</div>
 
-  </main>
+    <p class="box-auth__bottom">¿Ya tienes cuenta? <router-link class="link" to="/login">Inicia sesión</router-link></p>
+  </section>
 </template>
 
 <script>
@@ -31,31 +30,25 @@ export default {
   name: 'register',
   data () {
     return {
-      // Completar
+      form: {
+        email: '',
+        password: ''
+      },
+      error: null
     }
   },
   methods: {
-    register: function (e) {
+    register () {
       firebase
         .auth()
-        .createUserWithEmailAndPassword('***completar***', '***completar***')
-        .then(
-          // Completar
-        )
-      e.preventDefault()
+        .createUserWithEmailAndPassword(this.form.email, this.form.password)
+        .then(data => {
+          this.$router.replace({ name: 'Home' })
+        })
+        .catch(err => {
+          this.error = err.message
+        })
     }
   }
 }
 </script>
-
-<style lang="scss">
-.page-register{
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-
-  .main-title {
-      margin-bottom: 20px;
-  }
-}
-</style>
