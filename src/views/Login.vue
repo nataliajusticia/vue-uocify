@@ -47,6 +47,8 @@ export default {
         .catch(err => {
           this.error = err.message
         })
+      // eslint-disable-next-line no-template-curly-in-string
+      console.log(`Sesión iniciada correctamente con el correo: ${this.form.email}`)
     }
   }
 }

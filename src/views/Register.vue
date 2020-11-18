@@ -48,6 +48,8 @@ export default {
         .catch(err => {
           this.error = err.message
         })
+      // eslint-disable-next-line no-template-curly-in-string
+      console.log(`Nuevo usuario creado con el correo: ${this.form.email}`)
     }
   }
 }
