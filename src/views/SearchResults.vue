@@ -4,20 +4,18 @@
 
     <section class="main-section">
       <div class="nav">
-        <a v-on:click="activeTab=1" v-bind:class="[ activeTab === 1 ? 'active' : '' ]">Canciones</a>
-        <a v-on:click="activeTab=2" v-bind:class="[ activeTab === 2 ? 'active' : '' ]">Álbumes</a>
-        <a v-on:click="activeTab=3" v-bind:class="[ activeTab === 3 ? 'active' : '' ]">Artistas</a>
+        <a v-for="(tab, index) in tabs" v-bind:key="tab" @click="activeTab = index" :class="{active: activeTab === index}">{{ tab }}</a>
       </div>
 
-      <div v-if="activeTab === 1" class="pane">
+      <div v-if="activeTab === 0" class="pane">
         <TrackList v-bind:tracks="tracks" />
       </div>
 
-      <div v-if="activeTab === 2" class="pane">
+      <div v-if="activeTab === 1" class="pane">
         <AlbumList v-bind:albums="albums" />
       </div>
 
-      <div v-if="activeTab === 3" class="pane">
+      <div v-if="activeTab === 2" class="pane">
         <ArtistList v-bind:artists="artists" />
       </div>
     </section>
@@ -45,7 +43,8 @@ export default {
       tracks: JsonTracks.data,
       albums: JsonAlbums.data,
       artists: JsonArtists.data,
-      activeTab: 1
+      activeTab: 0,
+      tabs: ['Canciones', 'Álbumes', 'Artistas']
     }
   }
 }
