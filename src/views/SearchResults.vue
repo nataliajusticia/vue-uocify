@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Resultados de <span class="search-excerp">the beatles</span></h1>
+    <h1>Resultados de <span class="search-excerp">{{ $route.query.query }}</span></h1>
 
     <section class="main-section">
       <div class="nav">
