@@ -13,34 +13,45 @@ const routes = [
   {
     path: '',
     name: 'Home',
-    component: Home
+    component: Home,
+    meta: { title: 'Home | uocify' }
   },
   {
     path: '/search',
     name: 'Search',
     component: SearchResults,
-    props: true
+    props: true,
+    meta: { title: 'Búsqueda | uocify' }
   },
   {
     path: '*',
     name: 'Not Found',
-    component: NotFound
+    component: NotFound,
+    meta: { title: '404 | uocify' }
   },
   {
     path: '/login',
     name: 'Login',
-    component: Login
+    component: Login,
+    meta: { title: 'Iniciar sesión | uocify' }
   },
   {
     path: '/register',
     name: 'Register',
-    component: Register
+    component: Register,
+    meta: { title: 'Registrar | uocify' }
   }
 ]
 
 const router = new VueRouter({
   mode: 'history',
   routes
+})
+
+// Set Meta Title
+router.beforeEach((to, from, next) => {
+  document.title = to.meta.title || 'uocify'
+  next()
 })
 
 export default router
