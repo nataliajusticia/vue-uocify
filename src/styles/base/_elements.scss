@@ -1,8 +1,10 @@
 // Link
 .link {
-  font-weight: 600;
   text-decoration: none;
   color: $color-grey-dark;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 100%;
   transition: all 0.2s ease-in-out;
 
   &:hover {

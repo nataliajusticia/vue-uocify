@@ -9,16 +9,15 @@
         <SearchBar />
       </div>
 
-      <div class="navbar__user" v-if="user">
-        <span class="user-name d-none d-sm-block">{{ user.email }}</span>
-        <a class="nav-link" @click.prevent="logOut">Sign out</a>
+      <div class="navbar__user" v-if="isLoggedIn">
+        <span class="user-name d-none d-sm-block">{{ currentUser }}</span>
         <span class="user-icon"><fa-icon icon="user" /></span>
+        <a class="signout-icon link" @click.prevent="logOut"><fa-icon icon="sign-out-alt" /></a>
       </div>
 
-      <div class="navbar__user" v-if="!user">
-        <span class="user-name d-none d-sm-block"><router-link to="/login">Login</router-link></span>
-        <span class="user-name d-none d-sm-block"><router-link to="/register">Register</router-link></span>
-        <span class="user-icon"><fa-icon icon="user" /></span>
+      <div class="navbar__user" v-else>
+        <span class="user-name d-none d-sm-block"><router-link to="/login" class="link">Iniciar sesión</router-link></span>
+        <span class="user-name d-none d-sm-block"><router-link to="/register" class="link">Registrar</router-link></span>
       </div>
     </nav>
   </header>
@@ -35,15 +34,17 @@ export default {
   },
   data () {
     return {
-      user: null
+      isLoggedIn: null,
+      currentUser: ''
     }
   },
   created () {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        this.user = user
+        this.isLoggedIn = true
+        this.currentUser = user.email
       } else {
-        this.user = null
+        this.isLoggedIn = false
       }
     })
   },
@@ -116,6 +117,17 @@ header {
         background-color: $color-grey-dark;
         color: $color-grey-lighter;
         transition: .1s linear;
+      }
+    }
+
+    .signout-icon {
+      color: $color-grey-dark;
+      font-size: 1rem;
+      margin-left: 0.75rem;
+      cursor: pointer;
+
+      &:hover {
+        color: $color-red;
       }
     }
   }
