@@ -3,8 +3,7 @@ import App from './App.vue'
 import router from './router'
 import './firebase'
 
-// Import bootstrap and fontawesome
-import { BootstrapVue } from 'bootstrap-vue'
+// Import fontawesome
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faBars, faSearch, faChevronRight, faUser, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
@@ -12,8 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 // Import custom styles
 import './styles/main.scss'
 
-// Use bootstrap and fontawesome icons
-Vue.use(BootstrapVue)
+// Use fontawesome icons
 library.add(faBars, faSearch, faChevronRight, faUser, faSignOutAlt)
 Vue.component('fa-icon', FontAwesomeIcon)
 
