@@ -1,0 +1,95 @@
+// Header
+//
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.navbar {
+  background-color: $color-white;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px;
+  transition: all 0.3s;
+
+  // Brand section
+  &__brand {
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    display: inline-block;
+    margin-right: 15px;
+
+    img {
+      display: inline-block;
+      vertical-align: top;
+    }
+  }
+
+  // User section
+  &__user {
+    display: flex;
+    align-items: center;
+
+    .user-name {
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-right: 0.75rem;
+      line-height: 100%;
+    }
+
+    .user-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 35px;
+      height: 35px;
+      background-color: $color-grey-lighter;
+      border-radius: 100%;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $color-grey-dark;
+        color: $color-grey-lighter;
+        transition: .1s linear;
+      }
+    }
+
+    .user-login {
+      margin-right: 0.75rem;
+    }
+
+    .signout-icon {
+      color: $color-grey-dark;
+      font-size: 1rem;
+      margin-left: 0.75rem;
+      cursor: pointer;
+
+      &:hover {
+        color: $color-red;
+      }
+    }
+  }
+
+  // Search bar
+  &__search {
+    input {
+      appearance: none;
+      font-size: 0.75rem;
+      color: $color-grey-dark;
+      padding: 5px;
+      border: 0;
+      border-bottom: 2px solid transparent;
+      font-family: $font-family-base;
+  
+      &:focus {
+        outline: none;
+        border-bottom: 2px solid $color-red;
+      }
+    }
+  }
+}

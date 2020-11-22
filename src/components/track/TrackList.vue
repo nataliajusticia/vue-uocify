@@ -1,5 +1,5 @@
 <template>
-  <div class="tab-pane" id="canciones">
+  <div class="tab-pane">
     <h2>{{ tracksTotal }} canciones</h2>
 
     <table class="table">

@@ -1,25 +1,17 @@
 <template>
-  <div>
+  <section>
     <h1>Resultados de <span class="search-excerp">{{ $route.query.query }}</span></h1>
 
-    <section class="main-section">
+    <div class="main-section">
       <div class="nav">
         <a v-for="(tab, index) in tabs" v-bind:key="tab" @click="activeTab = index" :class="{active: activeTab === index}">{{ tab }}</a>
       </div>
 
-      <div v-if="activeTab === 0" class="pane">
-        <TrackList v-bind:tracks="tracks" />
-      </div>
-
-      <div v-if="activeTab === 1" class="pane">
-        <AlbumList v-bind:albums="albums" />
-      </div>
-
-      <div v-if="activeTab === 2" class="pane">
-        <ArtistList v-bind:artists="artists" />
-      </div>
-    </section>
-  </div>
+      <TrackList v-bind:tracks="tracks" v-if="activeTab === 0" />
+      <AlbumList v-bind:albums="albums" v-if="activeTab === 1" />
+      <ArtistList v-bind:artists="artists" v-if="activeTab === 2" />
+    </div>
+  </section>
 </template>
 
 <script>
