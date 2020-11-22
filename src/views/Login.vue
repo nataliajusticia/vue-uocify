@@ -7,11 +7,11 @@
     <form @submit.prevent="login" class="box-auth__form">
       <div class="form-group">
         <label class="form-label" for="username">Email</label>
-        <input placeholder="Correo electrónico" type="email" id="email" class="form-control" v-model="form.email">
+        <input placeholder="Correo electrónico" type="email" id="email" class="form-control" v-model="user.email">
       </div>
       <div class="form-group">
         <label class="form-label" for="password">Contraseña</label>
-        <input placeholder="Contraseña" type="password" id="password" class="form-control" v-model="form.password">
+        <input placeholder="Contraseña" type="password" id="password" class="form-control" v-model="user.password">
       </div>
       <button type="submit" class="btn">Iniciar sesión</button>
     </form>
@@ -29,7 +29,7 @@ export default {
   name: 'login',
   data () {
     return {
-      form: {
+      user: {
         email: '',
         password: ''
       },
@@ -40,19 +40,16 @@ export default {
     login () {
       firebase
         .auth()
-        .signInWithEmailAndPassword(this.form.email, this.form.password)
-        .then(data => {
-          this.$router.replace({ name: 'Home' })
+        .signInWithEmailAndPassword(this.user.email, this.user.password)
+        .then(() => {
+          this.$router.push({ path: this.redirect || '/' }, onComplete => { }, onAbort => { })
         })
-        .catch(err => {
-          this.error = err.message
+        .catch(error => {
+          this.error = error.message
         })
       // eslint-disable-next-line no-template-curly-in-string
-      console.log(`Sesión iniciada correctamente con el correo: ${this.form.email}`)
+      console.log(`Sesión iniciada correctamente con el correo: ${this.user.email}`)
     }
   }
 }
 </script>
-
-<style lang="scss" >
-</style>

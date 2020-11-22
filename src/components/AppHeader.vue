@@ -9,8 +9,15 @@
         <SearchBar />
       </div>
 
-      <div class="navbar__user">
-        <span class="user-name d-none d-sm-block">Natalia</span>
+      <div class="navbar__user" v-if="user">
+        <span class="user-name d-none d-sm-block">{{ user.email }}</span>
+        <a class="nav-link" @click.prevent="logOut">Sign out</a>
+        <span class="user-icon"><fa-icon icon="user" /></span>
+      </div>
+
+      <div class="navbar__user" v-if="!user">
+        <span class="user-name d-none d-sm-block"><router-link to="/login">Login</router-link></span>
+        <span class="user-name d-none d-sm-block"><router-link to="/register">Register</router-link></span>
         <span class="user-icon"><fa-icon icon="user" /></span>
       </div>
     </nav>
@@ -19,11 +26,35 @@
 
 <script>
 import SearchBar from '@/components/SearchBar.vue'
+import firebase from 'firebase'
 
 export default {
   name: 'Header',
   components: {
     SearchBar
+  },
+  data () {
+    return {
+      user: null
+    }
+  },
+  created () {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.user = user
+      } else {
+        this.user = null
+      }
+    })
+  },
+  methods: {
+    logOut () {
+      firebase.auth().signOut().then(() => {
+        firebase.auth().onAuthStateChanged(() => {
+          this.$router.push({ path: this.redirect || '/' }, onComplete => { }, onAbort => { })
+        })
+      })
+    }
   }
 }
 </script>

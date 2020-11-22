@@ -8,11 +8,11 @@
     <form @submit.prevent="register" class="box-auth__form">
       <div class="form-group">
         <label class="form-label" for="username">Email</label>
-        <input placeholder="Correo electrónico" type="email" id="email" class="form-control" v-model="form.email">
+        <input placeholder="Correo electrónico" type="email" id="email" class="form-control" v-model="user.email">
       </div>
       <div class="form-group">
         <label class="form-label" for="password">Contraseña</label>
-        <input placeholder="Contraseña" type="password" id="password" class="form-control" v-model="form.password">
+        <input placeholder="Contraseña" type="password" id="password" class="form-control" v-model="user.password">
       </div>
       <button type="submit" class="btn">Registrar</button>
     </form>
@@ -30,7 +30,7 @@ export default {
   name: 'register',
   data () {
     return {
-      form: {
+      user: {
         email: '',
         password: ''
       },
@@ -41,15 +41,15 @@ export default {
     register () {
       firebase
         .auth()
-        .createUserWithEmailAndPassword(this.form.email, this.form.password)
+        .createUserWithEmailAndPassword(this.user.email, this.user.password)
         .then(data => {
-          this.$router.replace({ name: 'Home' })
+          this.$router.push({ path: this.redirect || '/' }, onComplete => { }, onAbort => { })
         })
-        .catch(err => {
-          this.error = err.message
+        .catch(error => {
+          this.error = error.message
         })
       // eslint-disable-next-line no-template-curly-in-string
-      console.log(`Nuevo usuario creado con el correo: ${this.form.email}`)
+      console.log(`Nuevo usuario creado con el correo: ${this.user.email}`)
     }
   }
 }
