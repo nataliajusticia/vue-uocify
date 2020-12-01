@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import SearchBar from '@/components/SearchBar.vue'
+import SearchBar from '@/components/SearchBar'
 import firebase from 'firebase'
 
 export default {

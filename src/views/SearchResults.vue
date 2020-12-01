@@ -6,15 +6,16 @@
       <div class="nav">
         <a v-for="(tab, index) in tabs" v-bind:key="tab" @click="activeTab = index" :class="{active: activeTab === index}">{{ tab }}</a>
       </div>
-
-      <TrackList v-bind:tracks="tracks" v-if="activeTab === 0" />
-      <AlbumList v-bind:albums="albums" v-if="activeTab === 1" />
-      <ArtistList v-bind:artists="artists" v-if="activeTab === 2" />
+      <HomeList v-bind:tracks="tracks" v-bind:albums="albums" v-bind:artists="artists" v-bind:activeTab="activeTab"  v-if="activeTab === 0" />
+      <TrackList v-bind:tracks="tracks" v-if="activeTab === 1" />
+      <AlbumList v-bind:albums="albums" v-if="activeTab === 2" />
+      <ArtistList v-bind:artists="artists" v-if="activeTab === 3" />
     </div>
   </section>
 </template>
 
 <script>
+import HomeList from '@/components/HomeList'
 import TrackList from '@/components/track/TrackList'
 import AlbumList from '@/components/album/AlbumList'
 import ArtistList from '@/components/artist/ArtistList'
@@ -26,6 +27,7 @@ import JsonArtists from '@/json/artists.json'
 export default {
   name: 'SearchResults',
   components: {
+    HomeList,
     TrackList,
     AlbumList,
     ArtistList
@@ -36,7 +38,7 @@ export default {
       albums: JsonAlbums.data,
       artists: JsonArtists.data,
       activeTab: 0,
-      tabs: ['Canciones', 'Álbumes', 'Artistas']
+      tabs: ['Todos', 'Canciones', 'Álbumes', 'Artistas']
     }
   }
 }

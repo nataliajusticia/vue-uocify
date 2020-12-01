@@ -1,13 +1,13 @@
 <template>
   <section class="main-section box-auth">
-    <img width="100" alt="uocify logo" loading="lazy" src="@/assets/icon.svg">
+    <img width="100" alt="uocify logo" src="@/assets/icon.svg">
     <h1 class="main-title">Registro</h1>
 
     <p class="box-auth__intro">Regístrate en uocify para disfrutar de miles de canciones.</p>
 
     <form @submit.prevent="register" class="box-auth__form">
       <div class="form-group">
-        <label class="form-label" for="username">Email</label>
+        <label class="form-label" for="email">Email</label>
         <input placeholder="Correo electrónico" type="email" id="email" class="form-control" v-model="user.email">
       </div>
       <div class="form-group">
