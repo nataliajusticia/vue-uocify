@@ -3,7 +3,7 @@
     <h2>{{ albumsTotal }} álbumes</h2>
 
     <div class="row">
-      <Album v-for="album in albums" v-bind:key="album.id" v-bind:title="album.title" v-bind:cover_xl="album.cover_xl" v-bind:artist="album.artist.name" />
+      <Album v-for="album in albums" :key="album.id" :title="album.title" :image="album.cover_xl" :artist="album.artist.name" />
     </div>
   </div>
 </template>

@@ -14,7 +14,7 @@
       </thead>
 
       <tbody>
-        <Track v-for="track in tracks" v-bind:key="track.id" v-bind:title="track.title" v-bind:duration="track.duration" v-bind:cover_xl="track.album.cover_xl" v-bind:album="track.album.title" v-bind:artist="track.artist.name" />
+        <Track v-for="track in tracks" :key="track.id" :title="track.title" :duration="track.duration" :image="track.album.cover_xl" :album="track.album.title" :artist="track.artist.name" />
       </tbody>
     </table>
   </div>

@@ -1,21 +1,21 @@
 <template>
   <div class="tab-pane">
 
-    <h3><a class="direct-link">Canciones <fa-icon icon="chevron-right" /></a></h3>
+    <h3><a class="direct-link" @click="changeTab(1)">Canciones <fa-icon icon="chevron-right" /></a></h3>
     <table class="table">
       <tbody>
-      <Track v-for="track in tracks.slice(0, 6)" v-bind:key="track.id" v-bind:title="track.title" v-bind:duration="track.duration" v-bind:cover_xl="track.album.cover_xl" v-bind:album="track.album.title" v-bind:artist="track.artist.name" />
+        <Track v-for="track in tracks.slice(0, 6)" :key="track.id" :title="track.title" :duration="track.duration" :image="track.album.cover_xl" :album="track.album.title" :artist="track.artist.name" />
       </tbody>
     </table>
 
-    <h3><a class="direct-link">Álbumes <fa-icon icon="chevron-right" /></a></h3>
+    <h3><a class="direct-link" @click="changeTab(2)">Álbumes <fa-icon icon="chevron-right" /></a></h3>
     <div class="row">
-      <Album v-for="album in albums.slice(0, 6)" v-bind:key="album.id" v-bind:title="album.title" v-bind:cover_xl="album.cover_xl" v-bind:artist="album.artist.name" />
+      <Album v-for="album in albums.slice(0, 6)" :key="album.id" :title="album.title" :image="album.cover_xl" :artist="album.artist.name" />
     </div>
 
-    <h3><a class="direct-link">Artistas <fa-icon icon="chevron-right" /></a></h3>
+    <h3><a class="direct-link" @click="changeTab(3)">Artistas <fa-icon icon="chevron-right" /></a></h3>
     <div class="row">
-      <Artist v-for="artist in artists.slice(0, 6)" v-bind:key="artist.id" v-bind:name="artist.name" v-bind:picture_xl="artist.picture_xl" v-bind:nb_fan="artist.nb_fan" />
+      <Artist v-for="artist in artists.slice(0, 6)" :key="artist.id" :name="artist.name" :image="artist.picture_xl" :nb_fan="artist.nb_fan" />
     </div>
   </div>
 </template>
@@ -36,6 +36,17 @@ export default {
     tracks: Array,
     albums: Array,
     artists: Array
+  },
+  data () {
+    return {
+      activeTab: 0
+    }
+  },
+  methods: {
+    changeTab (tab) {
+      this.activeTab = tab
+      this.$emit('updateTab', tab)
+    }
   }
 }
 </script>

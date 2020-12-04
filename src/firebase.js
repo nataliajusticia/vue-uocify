@@ -1,6 +1,6 @@
 import firebase from 'firebase'
 
-// Your web app's Firebase configuration
+// Web app's Firebase configuration
 var firebaseConfig = {
   apiKey: 'AIzaSyCzwWgtXQaB76K_jd_ssjU3Ys69-4UvEZ4',
   authDomain: 'uocify-uoc.firebaseapp.com',

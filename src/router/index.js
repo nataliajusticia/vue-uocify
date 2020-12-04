@@ -48,7 +48,7 @@ const router = new VueRouter({
   routes
 })
 
-// Set Meta Title
+// Set Meta Title for every page
 router.beforeEach((to, from, next) => {
   document.title = to.meta.title || 'uocify'
   next()

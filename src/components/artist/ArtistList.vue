@@ -3,7 +3,7 @@
     <h2>{{ artistsTotal }} artistas</h2>
 
     <div class="row">
-      <Artist v-for="artist in artists" v-bind:key="artist.id" v-bind:name="artist.name" v-bind:picture_xl="artist.picture_xl" v-bind:nb_fan="artist.nb_fan" />
+      <Artist v-for="artist in artists" :key="artist.id" :name="artist.name" :image="artist.picture_xl" :nb_fan="artist.nb_fan" />
     </div>
   </div>
 </template>
