@@ -1,5 +1,5 @@
 <template>
-  <div class="tab-pane">
+  <div class="artist-pane">
     <h2>{{ artistsTotal }} artistas</h2>
 
     <div class="row">

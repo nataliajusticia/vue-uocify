@@ -1,5 +1,5 @@
 <template>
-  <div class="tab-pane">
+  <div class="home-tab">
 
     <h3><a class="direct-link" @click="changeTab(1)">Canciones <fa-icon icon="chevron-right" /></a></h3>
     <table class="table">

@@ -36,7 +36,7 @@
   transition: 0.1s linear;
   cursor: pointer;
 
-  > i {
+  > svg {
     transform: translateX(0);
     transition: 0.1s linear;
   }
@@ -44,7 +44,7 @@
   &:hover {
     color: $color-red;
 
-    > i {
+    > svg {
       transform: translateX(5px);
     }
   }
