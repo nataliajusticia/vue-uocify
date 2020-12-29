@@ -9,3 +9,13 @@ export const getPlaylists = async () => {
     console.error(err)
   }
 }
+
+// Fetch playlist data
+export const getPlaylistDetails = async (id) => {
+  try {
+    const response = await fetch(`${url}https://api.deezer.com/playlist/${id}`)
+    return await response.json()
+  } catch (err) {
+    console.error(err)
+  }
+}

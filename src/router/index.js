@@ -6,6 +6,7 @@ import SearchResults from '@/views/SearchResults'
 import NotFound from '@/views/NotFound'
 import Login from '@/views/Login'
 import Register from '@/views/Register'
+import PlaylistDetail from '@/views/PlaylistDetail'
 
 Vue.use(VueRouter)
 
@@ -22,6 +23,13 @@ const routes = [
     component: SearchResults,
     props: true,
     meta: { title: 'Búsqueda | uocify' }
+  },
+  {
+    path: '/playlist/:playlistId',
+    name: 'Playlist',
+    component: PlaylistDetail,
+    props: true,
+    meta: { title: 'Playlist | uocify' }
   },
   {
     path: '*',

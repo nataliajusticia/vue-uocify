@@ -22,15 +22,14 @@ export default {
       playlists: []
     }
   },
-  methods: {
-    loadPlaylists () {
-      getPlaylists().then(response => {
-        this.playlists = response.data
-      })
-    }
-  },
   created () {
     this.loadPlaylists()
+  },
+  methods: {
+    async loadPlaylists () {
+      const response = await getPlaylists()
+      this.playlists = response.data
+    }
   }
 }
 </script>
