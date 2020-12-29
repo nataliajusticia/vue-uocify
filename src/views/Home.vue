@@ -1,13 +1,36 @@
 <template>
-  <section class="home">
-    <h1 class="header-title">¿En busca de música? <br> Tu traes la pasión. Uocify trae la música.</h1>
-    <p>Prueba Uocify Premium gratis por 30 días*</p>
-    <router-link :to="{ path: '/search', query: { query: 'the beatles' }}" class="btn">Más de The Beatles</router-link>
+  <section>
+    <h1>Chart <span class="search-excerp">Playlists</span></h1>
+
+    <div class="main-section">
+      <Playlists :playlists="playlists" />
+    </div>
   </section>
 </template>
 
 <script>
+import Playlists from '@/components/playlist/Playlists'
+import { getPlaylists } from '@/api.js'
+
 export default {
-  name: 'Home'
+  name: 'Home',
+  components: {
+    Playlists
+  },
+  data () {
+    return {
+      playlists: []
+    }
+  },
+  methods: {
+    loadPlaylists () {
+      getPlaylists().then(response => {
+        this.playlists = response.data
+      })
+    }
+  },
+  created () {
+    this.loadPlaylists()
+  }
 }
 </script>
