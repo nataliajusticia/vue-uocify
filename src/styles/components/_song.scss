@@ -5,8 +5,6 @@
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 15px;
-  margin-bottom: 15px;
 
   thead {
     border-top: 1px solid $color-grey-lighter;
@@ -85,7 +83,7 @@ table {
     &__title {
       text-align: left;
     }
-  
+
     &__author,
     &__album,
     &__duration {

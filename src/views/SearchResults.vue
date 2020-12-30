@@ -21,9 +21,7 @@ import TrackList from '@/components/track/TrackList'
 import AlbumList from '@/components/album/AlbumList'
 import ArtistList from '@/components/artist/ArtistList'
 
-import JsonTracks from '@/json/tracks.json'
-import JsonAlbums from '@/json/albums.json'
-import JsonArtists from '@/json/artists.json'
+import { getTracks, getAlbums, getArtists } from '@/api'
 
 export default {
   name: 'SearchResults',
@@ -35,19 +33,36 @@ export default {
   },
   data () {
     return {
-      tracks: JsonTracks.data,
-      albums: JsonAlbums.data,
-      artists: JsonArtists.data,
-      tracksTotal: JsonTracks.total,
-      albumsTotal: JsonAlbums.total,
-      artistsTotal: JsonArtists.total,
+      tracks: [],
+      albums: [],
+      artists: [],
       activeTab: 0,
       tabs: ['Todos', 'Canciones', 'Álbumes', 'Artistas']
     }
   },
+  created () {
+    this.search(this.$route.query.query)
+  },
   methods: {
     changeTab (value) {
       this.activeTab = value
+    },
+    async updateTracks (q) {
+      const response = await getTracks(q)
+      this.tracks = response.data
+    },
+    async updateAlbums (q) {
+      const response = await getAlbums(q)
+      this.albums = response.data
+    },
+    async updateArtists (q) {
+      const response = await getArtists(q)
+      this.artists = response.data
+    },
+    search (q) {
+      this.updateTracks(q)
+      this.updateAlbums(q)
+      this.updateArtists(q)
     }
   }
 }
