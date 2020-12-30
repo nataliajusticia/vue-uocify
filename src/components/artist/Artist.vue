@@ -2,7 +2,7 @@
   <div class="col-lg-2 col-md-4 artist">
     <img class="artist__image" :src="image" :alt="name" loading="lazy">
     <p class="artist__title">{{ name }}</p>
-    <p class="artist__description">{{ nb_fan }} fans</p>
+    <p class="artist__description">{{ nb_fan | formatNumber }} fans</p>
   </div>
 </template>
 

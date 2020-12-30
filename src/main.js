@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import './firebase'
+import './filters'
 
 // Import fontawesome
 import { library } from '@fortawesome/fontawesome-svg-core'
