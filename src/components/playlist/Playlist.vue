@@ -1,6 +1,6 @@
 <template>
   <div class="col album playlist">
-    <router-link :to="{ name: 'Playlist', params: { playlistId: id }}">
+    <router-link :to="{ name: 'Playlist', params: { pId: id }}">
       <img class="album__image" :src="image" :alt="title" loading="lazy">
       <p class="album__title">{{ title }}</p>
       <p class="album__description">{{ nb_tracks }} canciones</p>

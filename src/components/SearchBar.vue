@@ -2,7 +2,8 @@
   <div class="navbar__search">
     <form @submit.prevent="submitQuery">
       <fa-icon icon="search" />
-      <input type="text" placeholder="Buscar..." v-model="query">
+      <label class="visibility-hidden" for="search">Buscar</label>
+      <input id="search" type="text" placeholder="Buscar..." v-model="query">
     </form>
   </div>
 </template>
@@ -12,14 +13,14 @@ export default {
   name: 'SearchBar',
   data () {
     return {
-      query: ''
+      query: this.$route.params.q || ''
     }
   },
   methods: {
     submitQuery () {
       this.$router.push({
         name: 'Search',
-        query: { query: this.query }
+        params: { q: this.query }
       }).catch(() => {})
       this.query = ''
     }

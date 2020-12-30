@@ -45,6 +45,11 @@ h3 {
   font-size: 1rem;
 }
 
+.visibility-hidden {
+  visibility: hidden;
+  font-size: 0;
+}
+
 // Main layout
 .container {
   padding-bottom: 50px;

@@ -28,11 +28,11 @@ export default {
   components: {
     TrackList
   },
-  props: ['playlistId'],
   data () {
     return {
       playlist: [],
-      tracks: []
+      tracks: [],
+      playlistId: this.$route.params.pId || ''
     }
   },
   created () {

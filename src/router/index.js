@@ -18,24 +18,17 @@ const routes = [
     meta: { title: 'Home | uocify' }
   },
   {
-    path: '/search',
+    path: '/search/:q',
     name: 'Search',
     component: SearchResults,
-    props: true,
     meta: { title: 'Búsqueda | uocify' }
   },
   {
-    path: '/playlist/:playlistId',
+    path: '/playlist/:pId',
     name: 'Playlist',
     component: PlaylistDetail,
     props: true,
     meta: { title: 'Playlist | uocify' }
-  },
-  {
-    path: '*',
-    name: 'Not Found',
-    component: NotFound,
-    meta: { title: '404 | uocify' }
   },
   {
     path: '/login',
@@ -48,11 +41,18 @@ const routes = [
     name: 'Register',
     component: Register,
     meta: { title: 'Registrar | uocify' }
+  },
+  {
+    path: '*',
+    name: 'Not Found',
+    component: NotFound,
+    meta: { title: '404 | uocify' }
   }
 ]
 
 const router = new VueRouter({
   mode: 'history',
+  base: process.env.BASE_URL,
   routes
 })
 

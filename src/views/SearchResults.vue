@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h1>Resultados de <span class="search-excerp">{{ $route.query.query }}</span></h1>
+    <h1>Resultados de <span class="search-excerp">{{ query }}</span></h1>
 
     <div class="main-section">
       <div class="nav">
@@ -37,15 +37,27 @@ export default {
       albums: [],
       artists: [],
       activeTab: 0,
-      tabs: ['Todos', 'Canciones', 'Álbumes', 'Artistas']
+      tabs: ['Todos', 'Canciones', 'Álbumes', 'Artistas'],
+      query: this.$route.params.q || ''
     }
   },
   created () {
-    this.search(this.$route.query.query)
+    this.search(this.query)
+  },
+  watch: {
+    '$route.params.q': function (q) {
+      this.query = q
+    }
   },
   methods: {
     changeTab (value) {
       this.activeTab = value
+    },
+    // Search
+    search (q) {
+      this.updateTracks(q)
+      this.updateAlbums(q)
+      this.updateArtists(q)
     },
     async updateTracks (q) {
       const response = await getTracks(q)
@@ -58,11 +70,6 @@ export default {
     async updateArtists (q) {
       const response = await getArtists(q)
       this.artists = response.data
-    },
-    search (q) {
-      this.updateTracks(q)
-      this.updateAlbums(q)
-      this.updateArtists(q)
     }
   }
 }
