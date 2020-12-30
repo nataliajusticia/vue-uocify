@@ -4,18 +4,18 @@
     <h3><a class="direct-link" @click="changeTab(1)">Canciones <fa-icon icon="chevron-right" /></a></h3>
     <table class="table">
       <tbody>
-        <Track v-for="track in tracks.slice(0, 6)" :key="track.id" :title="track.title" :duration="track.duration" :image="track.album.cover_xl" :album="track.album.title" :artist="track.artist.name" />
+        <Track v-for="track in tracks.slice(0, 6)" :key="track.id" :title="track.title" :duration="track.duration" :image="track.album.cover_small" :album="track.album.title" :artist="track.artist.name" />
       </tbody>
     </table>
 
     <h3><a class="direct-link" @click="changeTab(2)">Álbumes <fa-icon icon="chevron-right" /></a></h3>
     <div class="row">
-      <Album v-for="album in albums.slice(0, 6)" :key="album.id" :title="album.title" :image="album.cover_xl" :artist="album.artist.name" />
+      <Album v-for="album in albums.slice(0, 6)" :key="album.id" :title="album.title" :image="album.cover_big" :artist="album.artist.name" />
     </div>
 
     <h3><a class="direct-link" @click="changeTab(3)">Artistas <fa-icon icon="chevron-right" /></a></h3>
     <div class="row">
-      <Artist v-for="artist in artists.slice(0, 6)" :key="artist.id" :name="artist.name" :image="artist.picture_xl" :nb_fan="artist.nb_fan" />
+      <Artist v-for="artist in artists.slice(0, 6)" :key="artist.id" :name="artist.name" :image="artist.picture_big" :nb_fan="artist.nb_fan" />
     </div>
   </div>
 </template>

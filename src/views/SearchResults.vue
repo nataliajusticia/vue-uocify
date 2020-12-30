@@ -38,6 +38,9 @@ export default {
       tracks: JsonTracks.data,
       albums: JsonAlbums.data,
       artists: JsonArtists.data,
+      tracksTotal: JsonTracks.total,
+      albumsTotal: JsonAlbums.total,
+      artistsTotal: JsonArtists.total,
       activeTab: 0,
       tabs: ['Todos', 'Canciones', 'Álbumes', 'Artistas']
     }

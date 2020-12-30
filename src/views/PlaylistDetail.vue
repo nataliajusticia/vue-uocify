@@ -1,43 +1,38 @@
 <template>
   <section>
-    <h1>{{ playlist.title }}</h1>
-
     <div class="main-section">
-      <img class="album__image" :src="playlist.picture_xl" :alt="playlist.title" loading="lazy">
-      <p>{{ playlist.description }}</p>
+      <div class="container playlist-detail">
+        <div class="row row-cols-1 row-cols-md-2">
+          <img class="playlist-detail__image" :src="playlist.picture_big" :alt="playlist.title" loading="lazy">
 
-      <table class="table">
-        <thead>
-        <tr>
-          <th scope="col"></th>
-          <th scope="col" class="table__title">Canción</th>
-          <th scope="col" class="table__mobile">Artista</th>
-          <th scope="col" class="table__mobile">Álbum</th>
-          <th scope="col" class="table__mobile">D.</th>
-        </tr>
-        </thead>
+          <div class="playlist-detail__data">
+            <h1>{{ playlist.title }}</h1>
+            <p>{{ playlist.description }}</p>
+          </div>
+        </div>
+      </div>
 
-        <tbody>
-          <Track v-for="track in playlist.tracks.data" :key="track.id" :title="track.title" :duration="track.duration" :image="track.album.cover_xl" :album="track.album.title" :artist="track.artist.name" />
-        </tbody>
-      </table>
+      <hr>
+
+      <TrackList :tracks="tracks" />
     </div>
   </section>
 </template>
 
 <script>
-import Track from '@/components/track/Track'
+import TrackList from '@/components/track/TrackList'
 import { getPlaylistDetails } from '@/api.js'
 
 export default {
   name: 'PlaylistDetail',
   components: {
-    Track
+    TrackList
   },
   props: ['playlistId'],
   data () {
     return {
-      playlist: []
+      playlist: [],
+      tracks: []
     }
   },
   created () {
@@ -47,6 +42,7 @@ export default {
     async loadPlaylistDetail (id) {
       const response = await getPlaylistDetails(id)
       this.playlist = response
+      this.tracks = response.tracks.data
     }
   }
 }

@@ -1,0 +1,40 @@
+// Playlist
+//
+.playlist {
+  a {
+    text-decoration: none;
+
+    .album__title {
+      color: $color-grey-dark;
+    }
+  }
+}
+
+.playlist-detail {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+
+  &__image {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  &__data {
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    margin-bottom: 30px;
+
+    &__image {
+      max-width: 200px;
+    }
+
+    &__data {
+      margin-left: 20px;
+    }
+  }
+}

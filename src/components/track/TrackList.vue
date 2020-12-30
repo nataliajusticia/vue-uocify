@@ -14,7 +14,7 @@
       </thead>
 
       <tbody>
-        <Track v-for="track in tracks" :key="track.id" :title="track.title" :duration="track.duration" :image="track.album.cover_xl" :album="track.album.title" :artist="track.artist.name" />
+        <Track v-for="track in tracks" :key="track.id" :title="track.title" :duration="track.duration" :image="track.album.cover_small" :album="track.album.title" :artist="track.artist.name" />
       </tbody>
     </table>
   </div>
