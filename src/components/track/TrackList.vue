@@ -1,23 +1,19 @@
 <template>
-  <div class="track-pane">
-    <h2>{{ tracksTotal }} canciones</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col" class="table__title">Canción</th>
+        <th scope="col" class="table__mobile">Artista</th>
+        <th scope="col" class="table__mobile">Álbum</th>
+        <th scope="col" class="table__mobile">D.</th>
+      </tr>
+    </thead>
 
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col"></th>
-          <th scope="col" class="table__title">Canción</th>
-          <th scope="col" class="table__mobile">Artista</th>
-          <th scope="col" class="table__mobile">Álbum</th>
-          <th scope="col" class="table__mobile">D.</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <Track v-for="track in tracks" :key="track.id" :title="track.title" :duration="track.duration" :image="track.album.cover_small" :album="track.album.title" :artist="track.artist.name" />
-      </tbody>
-    </table>
-  </div>
+    <tbody>
+      <Track v-for="track in tracks" :key="track.id" :title="track.title" :duration="track.duration" :image="track.album.cover_small" :album="track.album.title" :artist="track.artist.name" />
+    </tbody>
+  </table>
 </template>
 
 <script>
@@ -30,11 +26,6 @@ export default {
   },
   props: {
     tracks: Array
-  },
-  data () {
-    return {
-      tracksTotal: this.tracks.length
-    }
   }
 }
 </script>

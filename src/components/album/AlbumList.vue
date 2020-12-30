@@ -1,10 +1,6 @@
 <template>
-  <div class="album-pane">
-    <h2>{{ albumsTotal }} álbumes</h2>
-
-    <div class="row">
-      <Album v-for="album in albums" :key="album.id" :title="album.title" :image="album.cover_big" :artist="album.artist.name" />
-    </div>
+  <div class="row">
+    <Album v-for="album in albums" :key="album.id" :title="album.title" :image="album.cover_big" :artist="album.artist.name" />
   </div>
 </template>
 
@@ -18,11 +14,6 @@ export default {
   },
   props: {
     albums: Array
-  },
-  data () {
-    return {
-      albumsTotal: this.albums.length
-    }
   }
 }
 </script>

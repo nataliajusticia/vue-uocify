@@ -1,10 +1,6 @@
 <template>
-  <div class="artist-pane">
-    <h2>{{ artistsTotal }} artistas</h2>
-
-    <div class="row">
-      <Artist v-for="artist in artists" :key="artist.id" :name="artist.name" :image="artist.picture_big" :nb_fan="artist.nb_fan" />
-    </div>
+  <div class="row">
+    <Artist v-for="artist in artists" :key="artist.id" :name="artist.name" :image="artist.picture_big" :nb_fan="artist.nb_fan" />
   </div>
 </template>
 
@@ -18,11 +14,6 @@ export default {
   },
   props: {
     artists: Array
-  },
-  data () {
-    return {
-      artistsTotal: this.artists.length
-    }
   }
 }
 </script>

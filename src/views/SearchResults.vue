@@ -8,9 +8,21 @@
       </div>
 
       <HomeList @updateTab="changeTab" :activeTab="activeTab" :tracks="tracks" :albums="albums" :artists="artists" v-if="activeTab === 0" />
-      <TrackList :tracks="tracks" v-if="activeTab === 1" />
-      <AlbumList :albums="albums" v-if="activeTab === 2" />
-      <ArtistList :artists="artists" v-if="activeTab === 3" />
+
+      <div id="tab-tracks" v-if="activeTab === 1">
+        <h2>{{ tracksTotal }} canciones</h2>
+        <TrackList :tracks="tracks" />
+      </div>
+
+      <div id="tab-albums" v-if="activeTab === 2">
+        <h2>{{ albumsTotal }} álbumes</h2>
+        <AlbumList :albums="albums"  />
+      </div>
+
+      <div id="tab-artists" v-if="activeTab === 3">
+        <h2>{{ artistsTotal }} artistas</h2>
+        <ArtistList :artists="artists" />
+      </div>
     </div>
   </section>
 </template>
@@ -36,6 +48,9 @@ export default {
       tracks: [],
       albums: [],
       artists: [],
+      tracksTotal: 0,
+      albumsTotal: 0,
+      artistsTotal: 0,
       activeTab: 0,
       tabs: ['Todos', 'Canciones', 'Álbumes', 'Artistas'],
       query: this.$route.params.q || ''
@@ -62,14 +77,17 @@ export default {
     async updateTracks (q) {
       const response = await getTracks(q)
       this.tracks = response.data
+      this.tracksTotal = this.tracks.length
     },
     async updateAlbums (q) {
       const response = await getAlbums(q)
       this.albums = response.data
+      this.albumsTotal = this.albums.length
     },
     async updateArtists (q) {
       const response = await getArtists(q)
       this.artists = response.data
+      this.artistsTotal = this.artists.length
     }
   }
 }

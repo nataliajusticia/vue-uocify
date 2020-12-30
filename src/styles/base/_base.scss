@@ -63,8 +63,12 @@ h3 {
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
 }
 
+.section-playlist {
+  padding-bottom: 15px;
+}
+
 // Panes
-.track-pane {
+#tab-tracks {
   padding-bottom: 15px;
 }
 

@@ -1,19 +1,19 @@
 <template>
   <div class="home-tab">
 
-    <h3><a class="direct-link" @click="changeTab(1)">Canciones <fa-icon icon="chevron-right" /></a></h3>
+    <h2><a class="direct-link" @click="changeTab(1)">Canciones <fa-icon icon="chevron-right" /></a></h2>
     <table class="table">
       <tbody>
         <Track v-for="track in tracks.slice(0, 6)" :key="track.id" :title="track.title" :duration="track.duration" :image="track.album.cover_small" :album="track.album.title" :artist="track.artist.name" />
       </tbody>
     </table>
 
-    <h3><a class="direct-link" @click="changeTab(2)">Álbumes <fa-icon icon="chevron-right" /></a></h3>
+    <h2><a class="direct-link" @click="changeTab(2)">Álbumes <fa-icon icon="chevron-right" /></a></h2>
     <div class="row">
       <Album v-for="album in albums.slice(0, 6)" :key="album.id" :title="album.title" :image="album.cover_big" :artist="album.artist.name" />
     </div>
 
-    <h3><a class="direct-link" @click="changeTab(3)">Artistas <fa-icon icon="chevron-right" /></a></h3>
+    <h2><a class="direct-link" @click="changeTab(3)">Artistas <fa-icon icon="chevron-right" /></a></h2>
     <div class="row">
       <Artist v-for="artist in artists.slice(0, 6)" :key="artist.id" :name="artist.name" :image="artist.picture_big" :nb_fan="artist.nb_fan" />
     </div>
