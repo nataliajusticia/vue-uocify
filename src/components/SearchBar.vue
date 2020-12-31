@@ -3,7 +3,7 @@
     <form @submit.prevent="submitQuery">
       <fa-icon icon="search" />
       <label class="visibility-hidden" for="search">Buscar</label>
-      <input id="search" type="text" placeholder="Buscar..." v-model="query">
+      <input id="search" type="text" name="search" placeholder="Buscar..." v-model="query">
     </form>
   </div>
 </template>

@@ -1,8 +1,6 @@
 <template>
-  <div>
-    <div class="row row-cols-lg-5 row-cols-md-2 row-cols-1">
-      <Playlist v-for="playlist in playlists" :key="playlist.id" :id="playlist.id" :title="playlist.title" :image="playlist.picture_big" :nb_tracks="playlist.nb_tracks" />
-    </div>
+  <div class="row row-cols-lg-5 row-cols-md-2 row-cols-1">
+    <Playlist v-for="playlist in playlists" :key="playlist.id" :playlist="playlist" />
   </div>
 </template>
 

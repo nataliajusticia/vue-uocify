@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <Album v-for="album in albums" :key="album.id" :title="album.title" :image="album.cover_big" :artist="album.artist.name" />
+    <Album v-for="album in albums" :key="album.id" :album="album" />
   </div>
 </template>
 

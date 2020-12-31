@@ -7,7 +7,16 @@
         <a v-for="(tab, index) in tabs" :key="tab" @click="activeTab = index" :class="{active: activeTab === index}">{{ tab }}</a>
       </div>
 
-      <HomeList @updateTab="changeTab" :activeTab="activeTab" :tracks="tracks" :albums="albums" :artists="artists" v-if="activeTab === 0" />
+      <div id="tab-home" v-if="activeTab === 0">
+        <h2><a class="direct-link" @click="changeTab(1)">Canciones <fa-icon icon="chevron-right" /></a></h2>
+        <TrackList :tracks="tracks.slice(0,6)" />
+
+        <h2><a class="direct-link" @click="changeTab(2)">Álbumes <fa-icon icon="chevron-right" /></a></h2>
+        <AlbumList :albums="albums.slice(0,6)" />
+
+        <h2><a class="direct-link" @click="changeTab(3)">Artistas <fa-icon icon="chevron-right" /></a></h2>
+        <ArtistList :artists="artists.slice(0,6)" />
+      </div>
 
       <div id="tab-tracks" v-if="activeTab === 1">
         <h2>{{ tracksTotal }} canciones</h2>
@@ -16,7 +25,7 @@
 
       <div id="tab-albums" v-if="activeTab === 2">
         <h2>{{ albumsTotal }} álbumes</h2>
-        <AlbumList :albums="albums"  />
+        <AlbumList :albums="albums" />
       </div>
 
       <div id="tab-artists" v-if="activeTab === 3">
@@ -28,7 +37,6 @@
 </template>
 
 <script>
-import HomeList from '@/components/HomeList'
 import TrackList from '@/components/track/TrackList'
 import AlbumList from '@/components/album/AlbumList'
 import ArtistList from '@/components/artist/ArtistList'
@@ -38,7 +46,6 @@ import { getTracks, getAlbums, getArtists } from '@/api'
 export default {
   name: 'SearchResults',
   components: {
-    HomeList,
     TrackList,
     AlbumList,
     ArtistList
@@ -65,8 +72,8 @@ export default {
     }
   },
   methods: {
-    changeTab (value) {
-      this.activeTab = value
+    changeTab (tab) {
+      this.activeTab = tab
     },
     // Search
     search (q) {
