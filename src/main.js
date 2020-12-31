@@ -12,6 +12,9 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 // Import custom styles
 import './styles/main.scss'
 
+// Import service worker
+import './registerServiceWorker'
+
 // Use fontawesome icons
 library.add(faBars, faSearch, faChevronRight, faUser, faSignOutAlt)
 Vue.component('fa-icon', FontAwesomeIcon)
