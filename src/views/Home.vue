@@ -2,14 +2,14 @@
   <section>
     <h1>Chart <span class="search-excerp">Playlists</span></h1>
 
-    <div class="main-section">
+    <div class="main-section playlist-section">
       <Playlists :playlists="playlists" />
     </div>
   </section>
 </template>
 
 <script>
-import Playlists from '@/components/playlist/Playlists'
+import Playlists from '@/components/playlist/PlaylistList'
 import { getPlaylists } from '@/api.js'
 
 export default {
