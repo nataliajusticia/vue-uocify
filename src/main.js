@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import VueMeta from 'vue-meta'
 import App from './App.vue'
 import router from './router'
 import './firebase'
@@ -20,6 +21,9 @@ library.add(faBars, faSearch, faChevronRight, faUser, faSignOutAlt)
 Vue.component('fa-icon', FontAwesomeIcon)
 
 Vue.config.productionTip = false
+
+// Use vue-meta
+Vue.use(VueMeta)
 
 new Vue({
   router,

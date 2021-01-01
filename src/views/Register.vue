@@ -51,6 +51,15 @@ export default {
 
       console.log(`Nuevo usuario creado con el correo: ${this.user.email}`)
     }
+  },
+  metaInfo: {
+    title: 'Registrar',
+    meta: [
+      {
+        name: 'description',
+        content: 'Regístrate en uocify para disfrutar de miles de canciones.'
+      }
+    ]
   }
 }
 </script>

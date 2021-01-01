@@ -14,39 +14,33 @@ const routes = [
   {
     path: '',
     name: 'Home',
-    component: Home,
-    meta: { title: 'Home | uocify' }
+    component: Home
   },
   {
     path: '/search/:q',
     name: 'Search',
-    component: SearchResults,
-    meta: { title: 'Búsqueda | uocify' }
+    component: SearchResults
   },
   {
     path: '/playlist/:pId',
     name: 'Playlist',
     component: PlaylistDetail,
-    props: true,
-    meta: { title: 'Playlist | uocify' }
+    props: true
   },
   {
     path: '/login',
     name: 'Login',
-    component: Login,
-    meta: { title: 'Iniciar sesión | uocify' }
+    component: Login
   },
   {
     path: '/register',
     name: 'Register',
-    component: Register,
-    meta: { title: 'Registrar | uocify' }
+    component: Register
   },
   {
     path: '*',
     name: 'Not Found',
-    component: NotFound,
-    meta: { title: '404 | uocify' }
+    component: NotFound
   }
 ]
 
@@ -54,12 +48,6 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
-})
-
-// Set Meta Title for every page
-router.beforeEach((to, from, next) => {
-  document.title = to.meta.title || 'uocify'
-  next()
 })
 
 export default router

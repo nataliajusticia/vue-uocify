@@ -30,6 +30,15 @@ export default {
       const response = await getPlaylists()
       this.playlists = response.data
     }
+  },
+  metaInfo: {
+    title: 'Home',
+    meta: [
+      {
+        name: 'description',
+        content: 'Tú pones la pasión. Nosotros ponemos la música. Uocify es tu aliado para conocer música.'
+      }
+    ]
   }
 }
 </script>

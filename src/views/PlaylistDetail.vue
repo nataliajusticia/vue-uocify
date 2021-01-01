@@ -42,6 +42,17 @@ export default {
       this.playlist = response
       this.tracks = response.tracks.data
     }
+  },
+  metaInfo () {
+    return {
+      title: this.playlist.title,
+      meta: [
+        {
+          name: 'description',
+          content: this.playlist.description
+        }
+      ]
+    }
   }
 }
 </script>

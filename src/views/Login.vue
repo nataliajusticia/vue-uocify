@@ -50,6 +50,15 @@ export default {
 
       console.log(`Sesión iniciada correctamente con el correo: ${this.user.email}`)
     }
+  },
+  metaInfo: {
+    title: 'Iniciar sesión',
+    meta: [
+      {
+        name: 'description',
+        content: 'Inicia sesión en uocify para disfrutar de miles de canciones.'
+      }
+    ]
   }
 }
 </script>

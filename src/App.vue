@@ -16,6 +16,10 @@ export default {
   name: 'App',
   components: {
     AppHeader
+  },
+  metaInfo: {
+    title: 'Uocify',
+    titleTemplate: '%s | uocify'
   }
 }
 </script>

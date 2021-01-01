@@ -117,6 +117,17 @@ export default {
         this.messageArtist = 'No se ha encontrado ningún artista que coincida con la búsqueda.'
       }
     }
+  },
+  metaInfo () {
+    return {
+      title: this.query,
+      meta: [
+        {
+          name: 'description',
+          content: 'Tú pones la pasión. Nosotros ponemos la música. Uocify es tu aliado para conocer música.'
+        }
+      ]
+    }
   }
 }
 </script>

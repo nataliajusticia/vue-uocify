@@ -8,6 +8,15 @@
 
 <script>
 export default {
-  name: 'NotFound'
+  name: 'NotFound',
+  metaInfo: {
+    title: '404 Error',
+    meta: [
+      {
+        name: 'description',
+        content: 'Error 404. Lo sentimos mucho pero la página que busca no se encuentra en nuestros servidores.'
+      }
+    ]
+  }
 }
 </script>
