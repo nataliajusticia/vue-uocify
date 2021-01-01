@@ -3,8 +3,8 @@
 module.exports = {
   pwa: {
     name: 'Uocify',
-    themeColor: '#4DBA87',
-    msTileColor: '#000000',
+    themeColor: '#e02d54',
+    msTileColor: '#f7f7f8',
     appleMobileWebAppCapable: 'yes',
     appleMobileWebAppStatusBarStyle: 'black',
     manifestOptions: {
