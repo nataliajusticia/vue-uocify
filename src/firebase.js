@@ -1,4 +1,6 @@
-import firebase from 'firebase'
+import firebase from 'firebase/app'
+import 'firebase/auth'
+import 'firebase/firestore'
 
 // Web app's Firebase configuration
 var firebaseConfig = {
@@ -11,6 +13,5 @@ var firebaseConfig = {
   appId: '1:681390493302:web:d03f543b1a40a854c31957'
 }
 
-const app = firebase.initializeApp(firebaseConfig)
-
-export const db = app.database()
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig)

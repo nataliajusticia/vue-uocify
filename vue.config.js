@@ -1,6 +1,17 @@
 // const path = require('path')
 
 module.exports = {
+  css: {
+    loaderOptions: {
+      scss: {
+        additionalData: '@import "~@/styles/base/variables.scss";'
+      }
+    }
+  },
+  configureWebpack: {
+    devtool: 'source-map'
+  },
+  productionSourceMap: true,
   pwa: {
     name: 'Uocify',
     themeColor: '#f7f7f8',
@@ -84,13 +95,6 @@ module.exports = {
           type: 'image/png'
         }
       ]
-    }
-  },
-  css: {
-    loaderOptions: {
-      scss: {
-        additionalData: `@import "~@/styles/base/variables.scss";`
-      }
     }
   }
 }
