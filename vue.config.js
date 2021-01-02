@@ -8,10 +8,6 @@ module.exports = {
       }
     }
   },
-  configureWebpack: {
-    devtool: 'source-map'
-  },
-  productionSourceMap: true,
   pwa: {
     name: 'Uocify',
     themeColor: '#f7f7f8',
