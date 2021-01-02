@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <AppHeader />
-    <main class="container">
+    <main class="container main-container">
       <transition name="slide" mode="out-in">
         <router-view :key="$route.path" />
       </transition>

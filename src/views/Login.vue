@@ -47,8 +47,6 @@ export default {
         .catch(error => {
           this.error = error.message
         })
-
-      console.log(`Sesión iniciada correctamente con el correo: ${this.user.email}`)
     }
   },
   metaInfo: {

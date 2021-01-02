@@ -48,8 +48,6 @@ export default {
         .catch(error => {
           this.error = error.message
         })
-
-      console.log(`Nuevo usuario creado con el correo: ${this.user.email}`)
     }
   },
   metaInfo: {

@@ -92,9 +92,34 @@ form.box-auth__form {
   font-size: 2rem;
 }
 
-// Separation
-hr {
-  border: 0;
-  height: 1px;
-  background-image: linear-gradient(to right, rgba(65, 65, 65, 0), rgba(65, 65, 65, 0.2), rgba(65, 65, 65, 0));
+// Spinner
+#spinner {
+  position: fixed;
+  display: none;
+  width: 40px;
+  height: 40px;
+  top: 50%;
+  left: 50%;
+  z-index: 9999;
+  background-color: #333;
+  opacity: 0;
+  animation: rotate 1.2s infinite ease-in-out;
+
+  &.is-active {
+    opacity: 1;
+    display: block;
+
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+  }
+  50% {
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+  }
+  100% {
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+  }
 }

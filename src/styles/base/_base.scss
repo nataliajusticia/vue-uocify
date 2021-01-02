@@ -45,7 +45,7 @@ h3 {
   font-size: 1rem;
 }
 
-.visibility-hidden{
+.visibility-hidden {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -57,7 +57,7 @@ h3 {
 }
 
 // Main layout
-.container {
+.main-container {
   padding-bottom: 50px;
   padding-top: 25px;
 }
@@ -80,7 +80,7 @@ h3 {
   align-items: center;
   max-width: 500px;
   margin: 0 auto;
-  padding: 40px;
+  padding: 15px;
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
 
   &__bottom {
@@ -88,9 +88,9 @@ h3 {
   }
 }
 
-// Resposive styles
-@media (max-width: 768px) {
+// Responsive styles
+@include media-breakpoint-up(md) {
   .box-auth {
-    padding: 15px;
+    padding: 40px;
   }
 }

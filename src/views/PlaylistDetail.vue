@@ -1,19 +1,17 @@
 <template>
-  <section>
-    <div class="main-section section-playlist">
-      <div class="container playlist-detail">
-        <div class="row row-cols-1 row-cols-md-2">
-          <img class="playlist-detail__image" :src="playlist.picture_big" :alt="playlist.title" loading="lazy">
+  <section class="main-section">
+    <div class="container playlist-detail">
+      <div class="row row-cols-1 row-cols-md-2">
+        <img class="playlist-detail__image" :src="playlist.picture_big" :alt="playlist.title" loading="lazy">
 
-          <div class="playlist-detail__data">
-            <h1>{{ playlist.title }}</h1>
-            <p>{{ playlist.description }}</p>
-          </div>
+        <div class="playlist-detail__data">
+          <h1>{{ playlist.title }}</h1>
+          <p>{{ playlist.description }}</p>
         </div>
       </div>
-
-      <TrackList :tracks="tracks" />
     </div>
+
+    <TrackList :tracks="tracks" />
   </section>
 </template>
 

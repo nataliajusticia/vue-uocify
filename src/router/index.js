@@ -1,46 +1,39 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-const Home = () => import('@/views/Home') // dynamic imports
-const SearchResults = () => import('@/views/SearchResults')
-const PlaylistDetail = () => import('@/views/PlaylistDetail')
-const Login = () => import('@/views/Login')
-const Register = () => import('@/views/Register')
-const NotFound = () => import('@/views/NotFound')
-
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '',
     name: 'Home',
-    component: Home
+    component: () => import('@/views/Home')
   },
   {
     path: '/search/:q',
     name: 'Search',
-    component: SearchResults
+    component: () => import('@/views/SearchResults')
   },
   {
     path: '/playlist/:pId',
     name: 'Playlist',
-    component: PlaylistDetail,
+    component: () => import('@/views/PlaylistDetail'),
     props: true
   },
   {
     path: '/login',
     name: 'Login',
-    component: Login
+    component: () => import('@/views/Login')
   },
   {
     path: '/register',
     name: 'Register',
-    component: Register
+    component: () => import('@/views/Register')
   },
   {
     path: '*',
     name: 'Not Found',
-    component: NotFound
+    component: () => import('@/views/NotFound')
   }
 ]
 
