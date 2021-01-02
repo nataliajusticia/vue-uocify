@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Home from '@/views/Home'
-import SearchResults from '@/views/SearchResults'
-import NotFound from '@/views/NotFound'
-import Login from '@/views/Login'
-import Register from '@/views/Register'
-import PlaylistDetail from '@/views/PlaylistDetail'
+const Home = () => import('@/views/Home') // dynamic imports
+const SearchResults = () => import('@/views/SearchResults')
+const PlaylistDetail = () => import('@/views/PlaylistDetail')
+const Login = () => import('@/views/Login')
+const Register = () => import('@/views/Register')
+const NotFound = () => import('@/views/NotFound')
 
 Vue.use(VueRouter)
 
