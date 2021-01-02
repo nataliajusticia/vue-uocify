@@ -3,11 +3,17 @@
 module.exports = {
   pwa: {
     name: 'Uocify',
-    themeColor: '#e02d54',
+    themeColor: '#f7f7f8',
     msTileColor: '#f7f7f8',
     appleMobileWebAppCapable: 'yes',
     appleMobileWebAppStatusBarStyle: 'black',
+    workboxPluginMode: 'GenerateSW',
     manifestOptions: {
+      name: this.pwa.name,
+      short_name: this.pwa.name,
+      start_url: '/',
+      display: 'standalone',
+      theme_color: this.pwa.themeColor,
       icons: [
         {
           src: './img/icons/android-chrome-192x192.png',
