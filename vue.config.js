@@ -9,6 +9,7 @@ module.exports = {
     appleMobileWebAppStatusBarStyle: 'black',
     workboxPluginMode: 'GenerateSW',
     manifestOptions: {
+      start_url: '/',
       icons: [
         {
           src: './img/icons/android-chrome-192x192.png',
