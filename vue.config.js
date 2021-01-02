@@ -9,11 +9,6 @@ module.exports = {
     appleMobileWebAppStatusBarStyle: 'black',
     workboxPluginMode: 'GenerateSW',
     manifestOptions: {
-      name: pwa.name,
-      short_name: pwa.name,
-      start_url: '/',
-      display: 'standalone',
-      theme_color: pwa.themeColor,
       icons: [
         {
           src: './img/icons/android-chrome-192x192.png',
