@@ -36,9 +36,9 @@ export default {
   },
   methods: {
     async loadPlaylistDetail (id) {
-      const response = await getPlaylistDetails(id)
-      this.playlist = response
-      this.tracks = response.tracks.data
+      const res = await getPlaylistDetails(id)
+      this.playlist = res
+      this.tracks = res.tracks.data
     }
   },
   metaInfo () {

@@ -21,6 +21,12 @@ const routes = [
     props: true
   },
   {
+    path: '/artist/:aId',
+    name: 'Artist',
+    component: () => import('@/views/ArtistDetail'),
+    props: true
+  },
+  {
     path: '/login',
     name: 'Login',
     component: () => import('@/views/Login')

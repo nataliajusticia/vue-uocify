@@ -91,8 +91,8 @@ export default {
       this.updateArtists(q)
     },
     async updateTracks (q) {
-      const response = await getTracks(q)
-      this.tracks = response.data
+      const res = await getTracks(q)
+      this.tracks = res.data
       this.tracksTotal = this.tracks.length
 
       if (Object.keys(this.tracks).length === 0) {
@@ -100,8 +100,8 @@ export default {
       }
     },
     async updateAlbums (q) {
-      const response = await getAlbums(q)
-      this.albums = response.data
+      const res = await getAlbums(q)
+      this.albums = res.data
       this.albumsTotal = this.albums.length
 
       if (Object.keys(this.albums).length === 0) {
@@ -109,8 +109,8 @@ export default {
       }
     },
     async updateArtists (q) {
-      const response = await getArtists(q)
-      this.artists = response.data
+      const res = await getArtists(q)
+      this.artists = res.data
       this.artistsTotal = this.artists.length
 
       if (Object.keys(this.artists).length === 0) {
