@@ -2,7 +2,7 @@
   <section class="main-section">
     <div class="container artist-detail">
       <div class="row row-cols-1 row-cols-md-2">
-        <img class="playlist-detail__image" :src="artist.picture_big" :alt="artist.name" loading="lazy">
+        <img class="playlist-detail__image" :srcset="`${artist.picture_big}, ${artist.picture_xl} 1.5x`" :src="artist.picture_big" :alt="artist.name" loading="lazy">
 
         <div class="playlist-detail__data">
           <h1>{{ artist.name }}</h1>

@@ -49,13 +49,14 @@ table {
 
 // Song component
 .song {
-  cursor: pointer;
   font-size: .75rem;
   border-top: 1px solid $color-grey-lighter;
   transition: .1s background-color linear;
 
   &__image {
     max-width: 35px;
+    width: 35px;
+    height: 35px;
     border-radius: 5px;
     vertical-align: middle;
   }
