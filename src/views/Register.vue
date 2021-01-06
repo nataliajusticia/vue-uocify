@@ -1,6 +1,6 @@
 <template>
   <section class="main-section box-auth">
-    <img width="100" alt="uocify logo" src="@/assets/icon.svg">
+    <img width="100" height="100" alt="uocify logo" src="@/assets/icon.svg">
     <h1 class="main-title">Registro</h1>
 
     <p class="box-auth__intro">Regístrate en uocify para disfrutar de miles de canciones.</p>
