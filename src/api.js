@@ -1,10 +1,11 @@
-const url = 'https://cors-anywhere.herokuapp.com/'
+// Deezer api url
+const url = 'https://cors-anywhere.herokuapp.com/https://api.deezer.com'
 
 // Fetch chart playlists data
 //
 export const getPlaylists = async () => {
   document.getElementById('spinner').classList.add('is-active')
-  const res = await fetch(`${url}https://api.deezer.com/chart/0/playlists`)
+  const res = await fetch(`${url}/chart/0/playlists`)
   if (res) document.getElementById('spinner').classList.remove('is-active')
   return await res.json()
 }
@@ -13,7 +14,7 @@ export const getPlaylists = async () => {
 //
 export const getPlaylistDetails = async (id) => {
   document.getElementById('spinner').classList.add('is-active')
-  const res = await fetch(`${url}https://api.deezer.com/playlist/${id}`)
+  const res = await fetch(`${url}/playlist/${id}`)
   if (res) document.getElementById('spinner').classList.remove('is-active')
   return await res.json()
 }
@@ -22,7 +23,7 @@ export const getPlaylistDetails = async (id) => {
 //
 const searchData = async (q, type) => {
   document.getElementById('spinner').classList.add('is-active')
-  const res = await fetch(`${url}https://api.deezer.com/search/${type}?q=${q}`)
+  const res = await fetch(`${url}/search/${type}?q=${q}`)
   if (res) document.getElementById('spinner').classList.remove('is-active')
   return await res.json()
 }
@@ -46,14 +47,14 @@ export const getArtists = async (q, type = 'artist') => {
 //
 export const getArtistDetails = async (id) => {
   document.getElementById('spinner').classList.add('is-active')
-  const res = await fetch(`${url}https://api.deezer.com/artist/${id}`)
+  const res = await fetch(`${url}/artist/${id}`)
   if (res) document.getElementById('spinner').classList.remove('is-active')
   return await res.json()
 }
 
 export const getArtistTracks = async (id) => {
   document.getElementById('spinner').classList.add('is-active')
-  const res = await fetch(`${url}https://api.deezer.com/artist/${id}/top?limit=10`)
+  const res = await fetch(`${url}/artist/${id}/top?limit=10`)
   if (res) document.getElementById('spinner').classList.remove('is-active')
   return await res.json()
 }

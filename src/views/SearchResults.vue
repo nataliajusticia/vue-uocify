@@ -73,7 +73,9 @@ export default {
     }
   },
   created () {
-    this.search(this.query)
+    this.updateTracks(this.query)
+    this.updateAlbums(this.query)
+    this.updateArtists(this.query)
   },
   watch: {
     '$route.params.q': function (q) {
@@ -84,38 +86,26 @@ export default {
     changeTab (tab) {
       this.activeTab = tab
     },
-    // Search
-    search (q) {
-      this.updateTracks(q)
-      this.updateAlbums(q)
-      this.updateArtists(q)
-    },
     async updateTracks (q) {
       const res = await getTracks(q)
       this.tracks = res.data
       this.tracksTotal = this.tracks.length
 
-      if (Object.keys(this.tracks).length === 0) {
-        this.messageTrack = 'No se ha encontrado ninguna canción que coincida con la búsqueda.'
-      }
+      if (Object.keys(this.tracks).length === 0) this.messageTrack = 'No se ha encontrado ninguna canción que coincida con la búsqueda.'
     },
     async updateAlbums (q) {
       const res = await getAlbums(q)
       this.albums = res.data
       this.albumsTotal = this.albums.length
 
-      if (Object.keys(this.albums).length === 0) {
-        this.messageAlbum = 'No se ha encontrado ningún álbum que coincida con la búsqueda.'
-      }
+      if (Object.keys(this.albums).length === 0) this.messageAlbum = 'No se ha encontrado ningún álbum que coincida con la búsqueda.'
     },
     async updateArtists (q) {
       const res = await getArtists(q)
       this.artists = res.data
       this.artistsTotal = this.artists.length
 
-      if (Object.keys(this.artists).length === 0) {
-        this.messageArtist = 'No se ha encontrado ningún artista que coincida con la búsqueda.'
-      }
+      if (Object.keys(this.artists).length === 0) this.messageArtist = 'No se ha encontrado ningún artista que coincida con la búsqueda.'
     }
   },
   metaInfo () {
