@@ -19,6 +19,7 @@
       <div class="navbar__user" v-else>
         <span class="d-none d-sm-block user-login"><router-link to="/login" class="link">Iniciar sesión</router-link></span>
         <span class="d-none d-sm-block"><router-link to="/register" class="link">Registrar</router-link></span>
+        <router-link to="/login" class="signin-icon link d-sm-none"><fa-icon icon="sign-in-alt" /></router-link>
       </div>
     </nav>
   </header>

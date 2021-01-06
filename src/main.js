@@ -7,7 +7,7 @@ import './filters'
 
 // Import fontawesome
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faBars, faSearch, faChevronRight, faUser, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faSearch, faChevronRight, faUser, faSignOutAlt, faSignInAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 // Import custom styles
@@ -17,7 +17,7 @@ import './styles/main.scss'
 import './registerServiceWorker'
 
 // Use fontawesome icons
-library.add(faBars, faSearch, faChevronRight, faUser, faSignOutAlt)
+library.add(faBars, faSearch, faChevronRight, faUser, faSignOutAlt, faSignInAlt)
 Vue.component('fa-icon', FontAwesomeIcon)
 
 Vue.config.productionTip = false
