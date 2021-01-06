@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section v-if="playlists.length">
     <h1>Chart <span class="search-excerp">Playlists</span></h1>
 
     <div class="main-section playlist-section">

@@ -1,5 +1,5 @@
 <template>
-  <section class="main-section">
+  <section class="main-section" v-if="Object.keys(playlist).length">
     <div class="container playlist-detail">
       <div class="row row-cols-1 row-cols-md-2">
         <img class="playlist-detail__image" :srcset="`${playlist.picture_big}, ${playlist.picture_xl} 1.5x`" :src="playlist.picture_big" :alt="playlist.title" loading="lazy">
@@ -11,7 +11,7 @@
       </div>
     </div>
 
-    <TrackList :tracks="tracks" />
+    <TrackList :tracks="tracks" v-if="tracks.length" />
   </section>
 </template>
 
