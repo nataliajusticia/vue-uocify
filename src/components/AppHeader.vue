@@ -13,7 +13,7 @@
       <div class="navbar__user" v-if="isLoggedIn">
         <span class="user-name d-none d-sm-block">{{ currentUser }}</span>
         <span class="user-icon"><fa-icon icon="user" /></span>
-        <a class="signout-icon link" @click.prevent="logOut"><fa-icon icon="sign-out-alt" /></a>
+        <a class="signout-icon link" @click.prevent="logOut" aria-label="Log out"><fa-icon icon="sign-out-alt" /></a>
       </div>
 
       <div class="navbar__user" v-else>
