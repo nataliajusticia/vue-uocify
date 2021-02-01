@@ -17,7 +17,7 @@
 
 <script>
 import TrackList from '@/components/track/TrackList'
-import { getPlaylistDetails } from '@/api.js'
+import { getPlaylistDetails } from '@/services/api.js'
 
 export default {
   name: 'PlaylistDetail',

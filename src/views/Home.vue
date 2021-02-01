@@ -10,7 +10,7 @@
 
 <script>
 import Playlists from '@/components/playlist/PlaylistList'
-import { getPlaylists } from '@/api.js'
+import { getPlaylists } from '@/services/api.js'
 
 export default {
   name: 'Home',

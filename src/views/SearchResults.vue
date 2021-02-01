@@ -47,7 +47,7 @@ import TrackList from '@/components/track/TrackList'
 import AlbumList from '@/components/album/AlbumList'
 import ArtistList from '@/components/artist/ArtistList'
 
-import { getTracks, getAlbums, getArtists } from '@/api'
+import { getTracks, getAlbums, getArtists } from '@/services/api.js'
 
 export default {
   name: 'SearchResults',
