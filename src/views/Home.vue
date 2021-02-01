@@ -3,7 +3,7 @@
     <h1>Chart <span class="search-excerp">Playlists</span></h1>
 
     <div class="main-section playlist-section">
-      <div id="spinner" v-if="loading"></div>
+      <div id="spinner" v-if="isLoading"></div>
 
       <Playlists :playlists="playlists" />
     </div>
@@ -22,7 +22,7 @@ export default {
   data () {
     return {
       playlists: [],
-      loading: true
+      isLoading: true
     }
   },
   created () {
@@ -32,7 +32,7 @@ export default {
     async loadPlaylists () {
       const response = await getPlaylists()
       this.playlists = response.data
-      this.loading = false
+      this.isLoading = false
     }
   },
   metaInfo: {

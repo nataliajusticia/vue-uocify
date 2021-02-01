@@ -1,6 +1,6 @@
 <template>
   <section class="main-section">
-    <div id="spinner" v-if="loading"></div>
+    <div id="spinner" v-if="isLoading"></div>
 
     <div class="container artist-detail" v-if="Object.keys(artist).length">
       <div class="row row-cols-1 row-cols-md-2">
@@ -35,7 +35,7 @@ export default {
       artist: [],
       tracks: [],
       artistId: this.$route.params.aId || '',
-      loading: true
+      isloading: true
     }
   },
   created () {
@@ -47,7 +47,7 @@ export default {
       const resTracks = await getArtistTracks(id)
       this.artist = resData
       this.tracks = resTracks.data
-      this.loading = false
+      this.isLoading = false
     }
   },
   metaInfo () {

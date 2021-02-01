@@ -1,7 +1,7 @@
 <template>
   <section class="main-section">
     <div class="container playlist-detail">
-      <div id="spinner" v-if="loading"></div>
+      <div id="spinner" v-if="isLoading"></div>
 
       <div class="row row-cols-1 row-cols-md-2" v-if="Object.keys(playlist).length">
         <img class="playlist-detail__image" :srcset="`${playlist.picture_big}, ${playlist.picture_xl} 1.5x`" :src="playlist.picture_big" :alt="playlist.title" loading="lazy">
@@ -31,7 +31,7 @@ export default {
       playlist: [],
       tracks: [],
       playlistId: this.$route.params.pId || '',
-      loading: true
+      isLoading: true
     }
   },
   created () {
@@ -42,7 +42,7 @@ export default {
       const res = await getPlaylistDetails(id)
       this.playlist = res
       this.tracks = res.tracks.data
-      this.loading = false
+      this.isLoading = false
     }
   },
   metaInfo () {

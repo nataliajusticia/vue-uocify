@@ -3,7 +3,7 @@
     <h1>Resultados de <span class="search-excerp">{{ query }}</span></h1>
 
     <div class="main-section">
-      <div id="spinner" v-if="loading"></div>
+      <div id="spinner" v-if="isLoading"></div>
 
       <div class="nav">
         <a v-for="(tab, index) in tabs" :key="tab" @click="activeTab = index" :class="{active: activeTab === index}">{{ tab }}</a>
@@ -72,7 +72,7 @@ export default {
       messageArtist: '',
       messageAlbum: '',
       messageTrack: '',
-      loading: true
+      isLoading: true
     }
   },
   created () {
@@ -95,7 +95,7 @@ export default {
       this.tracksTotal = this.tracks.length
 
       if (Object.keys(this.tracks).length === 0) this.messageTrack = 'No se ha encontrado ninguna canción que coincida con la búsqueda.'
-      this.loading = false
+      this.isLoading = false
     },
     async updateAlbums (q, type) {
       const res = await searchData(q, type)
@@ -103,7 +103,7 @@ export default {
       this.albumsTotal = this.albums.length
 
       if (Object.keys(this.albums).length === 0) this.messageAlbum = 'No se ha encontrado ningún álbum que coincida con la búsqueda.'
-      this.loading = false
+      this.isLoading = false
     },
     async updateArtists (q, type) {
       const res = await searchData(q, type)
@@ -111,7 +111,7 @@ export default {
       this.artistsTotal = this.artists.length
 
       if (Object.keys(this.artists).length === 0) this.messageArtist = 'No se ha encontrado ningún artista que coincida con la búsqueda.'
-      this.loading = false
+      this.isLoading = false
     }
   },
   metaInfo () {
