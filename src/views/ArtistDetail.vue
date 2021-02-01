@@ -1,6 +1,8 @@
 <template>
-  <section class="main-section" v-if="Object.keys(artist).length">
-    <div class="container artist-detail">
+  <section class="main-section">
+    <div id="spinner" v-if="loading"></div>
+
+    <div class="container artist-detail" v-if="Object.keys(artist).length">
       <div class="row row-cols-1 row-cols-md-2">
         <img class="playlist-detail__image" :srcset="`${artist.picture_big}, ${artist.picture_xl} 1.5x`" :src="artist.picture_big" :alt="artist.name" loading="lazy">
 
@@ -32,7 +34,8 @@ export default {
     return {
       artist: [],
       tracks: [],
-      artistId: this.$route.params.aId || ''
+      artistId: this.$route.params.aId || '',
+      loading: true
     }
   },
   created () {
@@ -44,6 +47,7 @@ export default {
       const resTracks = await getArtistTracks(id)
       this.artist = resData
       this.tracks = resTracks.data
+      this.loading = false
     }
   },
   metaInfo () {

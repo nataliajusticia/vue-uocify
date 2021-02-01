@@ -99,8 +99,8 @@ form.box-auth__form {
 
 // Spinner
 #spinner {
-  position: fixed;
-  display: none;
+  position: absolute;
+  display: block;
   width: 40px;
   height: 40px;
   top: 50%;
@@ -109,14 +109,8 @@ form.box-auth__form {
   margin-top: -20px;
   z-index: 9999;
   background-color: #333;
-  opacity: 0;
+  opacity: 1;
   animation: rotate 1.2s infinite ease-in-out;
-
-  &.is-active {
-    opacity: 1;
-    display: block;
-
-  }
 }
 
 @keyframes rotate {

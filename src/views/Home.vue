@@ -1,8 +1,10 @@
 <template>
-  <section v-if="playlists.length">
+  <section>
     <h1>Chart <span class="search-excerp">Playlists</span></h1>
 
     <div class="main-section playlist-section">
+      <div id="spinner" v-if="loading"></div>
+
       <Playlists :playlists="playlists" />
     </div>
   </section>
@@ -19,7 +21,8 @@ export default {
   },
   data () {
     return {
-      playlists: []
+      playlists: [],
+      loading: true
     }
   },
   created () {
@@ -29,6 +32,7 @@ export default {
     async loadPlaylists () {
       const response = await getPlaylists()
       this.playlists = response.data
+      this.loading = false
     }
   },
   metaInfo: {

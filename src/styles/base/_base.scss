@@ -63,10 +63,16 @@ h3 {
 }
 
 .main-section {
+  position: relative;
+  min-height: 80vh;
   padding: 15px;
   background-color: $color-white;
   border-radius: .25rem;
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+
+  @include media-breakpoint-up(md) {
+    min-height: 561px;
+  }
 }
 
 .playlist-section {

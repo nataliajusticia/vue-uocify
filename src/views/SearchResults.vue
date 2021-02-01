@@ -3,6 +3,8 @@
     <h1>Resultados de <span class="search-excerp">{{ query }}</span></h1>
 
     <div class="main-section">
+      <div id="spinner" v-if="loading"></div>
+
       <div class="nav">
         <a v-for="(tab, index) in tabs" :key="tab" @click="activeTab = index" :class="{active: activeTab === index}">{{ tab }}</a>
       </div>
@@ -47,7 +49,7 @@ import TrackList from '@/components/track/TrackList'
 import AlbumList from '@/components/album/AlbumList'
 import ArtistList from '@/components/artist/ArtistList'
 
-import { getTracks, getAlbums, getArtists } from '@/services/api.js'
+import { searchData } from '@/services/api.js'
 
 export default {
   name: 'SearchResults',
@@ -69,13 +71,14 @@ export default {
       query: this.$route.params.q || '',
       messageArtist: '',
       messageAlbum: '',
-      messageTrack: ''
+      messageTrack: '',
+      loading: true
     }
   },
   created () {
-    this.updateTracks(this.query)
-    this.updateAlbums(this.query)
-    this.updateArtists(this.query)
+    this.updateTracks(this.query, 'track')
+    this.updateAlbums(this.query, 'album')
+    this.updateArtists(this.query, 'artist')
   },
   watch: {
     '$route.params.q': function (q) {
@@ -86,26 +89,29 @@ export default {
     changeTab (tab) {
       this.activeTab = tab
     },
-    async updateTracks (q) {
-      const res = await getTracks(q)
+    async updateTracks (q, type) {
+      const res = await searchData(q, type)
       this.tracks = res.data
       this.tracksTotal = this.tracks.length
 
       if (Object.keys(this.tracks).length === 0) this.messageTrack = 'No se ha encontrado ninguna canción que coincida con la búsqueda.'
+      this.loading = false
     },
-    async updateAlbums (q) {
-      const res = await getAlbums(q)
+    async updateAlbums (q, type) {
+      const res = await searchData(q, type)
       this.albums = res.data
       this.albumsTotal = this.albums.length
 
       if (Object.keys(this.albums).length === 0) this.messageAlbum = 'No se ha encontrado ningún álbum que coincida con la búsqueda.'
+      this.loading = false
     },
-    async updateArtists (q) {
-      const res = await getArtists(q)
+    async updateArtists (q, type) {
+      const res = await searchData(q, type)
       this.artists = res.data
       this.artistsTotal = this.artists.length
 
       if (Object.keys(this.artists).length === 0) this.messageArtist = 'No se ha encontrado ningún artista que coincida con la búsqueda.'
+      this.loading = false
     }
   },
   metaInfo () {
