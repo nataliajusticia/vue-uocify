@@ -35,7 +35,7 @@ export default {
       artist: [],
       tracks: [],
       artistId: this.$route.params.aId || '',
-      isloading: true
+      isLoading: true
     }
   },
   created () {
