@@ -1,5 +1,5 @@
 // Deezer api url
-const API_URL = 'https://cors-anywhere.herokuapp.com/https://api.deezer.com'
+const API_URL = 'https://cors.bridged.cc/https://api.deezer.com'
 
 // Fetch playlists data
 //
